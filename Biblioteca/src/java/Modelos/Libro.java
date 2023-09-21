@@ -71,7 +71,7 @@ public class Libro implements Serializable {
     @JoinTable(name = "libro_premios", joinColumns = {
         @JoinColumn(name = "cod_libro", referencedColumnName = "cod_libro")}, inverseJoinColumns = {
         @JoinColumn(name = "cod_premio", referencedColumnName = "cod_premio")})
-    @ManyToMany
+    @ManyToMany//para resolver la relación muchos a muchos aquí crea también una lista de premios
     private List<Premio> premioList;
     @JoinTable(name = "autor_libro", joinColumns = {
         @JoinColumn(name = "cod_libro", referencedColumnName = "cod_libro")}, inverseJoinColumns = {

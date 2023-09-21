@@ -1,3 +1,12 @@
+/*Aquí va la programación de la web
+La vista le pedirá cosas a esta Clase, por ejemplo una lista de autores;
+pero la lista estará en la base de datos, para acceder a ella, que 
+está relacionada con los modelos (con consultas SQL)
+lo haremos a traves de las funciones que se encuentran en los repositorios
+y luego le pasamos todo a la vista para que lo muestre haciendo magia
+*/
+
+
 package Controladores;
 
 import Modelos.Autor;

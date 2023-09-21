@@ -32,8 +32,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "premios")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries({//aquí crea consultas básicas y a cada una le da un nombre, es un SQL un poco especial.
     @NamedQuery(name = "Premio.findAll", query = "SELECT p FROM Premio p")
+    //en esta sentencia cuando quieres recibir un parámetro pones :, el codPremio te lo inventas tú y luego te tienes que acordar; 
     , @NamedQuery(name = "Premio.findByCodPremio", query = "SELECT p FROM Premio p WHERE p.codPremio = :codPremio")
     , @NamedQuery(name = "Premio.findByTipo", query = "SELECT p FROM Premio p WHERE p.tipo = :tipo")})
 public class Premio implements Serializable {
@@ -42,10 +43,10 @@ public class Premio implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "cod_premio")
-    private Integer codPremio;
+    @Column(name = "cod_premio")//en la tabla se llama cod_premio
+    private Integer codPremio;//por defecto está encapsulado (private) y no es int sino Integer
     @Basic(optional = false)
-    @NotNull
+    @NotNull // no admite nulos
     @Lob
     @Size(min = 1, max = 65535)
     @Column(name = "nom_premio")
@@ -54,9 +55,18 @@ public class Premio implements Serializable {
     @NotNull
     @Column(name = "tipo")
     private Character tipo;
+    //relación muchos a muchos tabla premios y libros
     @ManyToMany(mappedBy = "premioList")
+    /*
+    crea una lista de objetos de la clase libro en lugar de crear una tabla intermedia
+    es la manera de resolver la relaición muchos a muchos.
+    En la tabla de libros habrá una lista de premios.
+    */
     private List<Libro> libroList;
     @JoinColumn(name = "cod_pais", referencedColumnName = "cod_pais")
+    //en este caso la relación es que el premio es de un país.
+    //por esa razón, es un atributo con un objeto de la clase Pais
+    //no es un entero
     @ManyToOne(optional = false)
     private Pais codPais;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "premio")

@@ -50,6 +50,7 @@ public class Pais implements Serializable {
     @Size(min = 1, max = 25)
     @Column(name = "bandera")
     private String bandera;
+    //un pais tiene una lista de premios porque es una relación uno a muchos
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codPais")
     private List<Premio> premioList;
     @OneToMany(mappedBy = "nacionalidad")
