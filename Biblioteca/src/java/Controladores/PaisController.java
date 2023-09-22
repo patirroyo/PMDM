@@ -6,6 +6,7 @@ import Controladores.util.PaginationHelper;
 import Repositorios.PaisFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -183,9 +184,10 @@ public class PaisController implements Serializable {
     public SelectItem[] getItemsAvailableSelectMany() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
     }
-
+//cambiamos la clase a la que llama
     public SelectItem[] getItemsAvailableSelectOne() {
-        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+        //return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+        return getSelectPais(ejbFacade.findAll(), true);
     }
 
     public Pais getPais(java.lang.Integer id) {
@@ -230,6 +232,21 @@ public class PaisController implements Serializable {
             }
         }
 
+    }
+    //esto lo hemos hecho nosotros pegándolo desde la JsfUtil.java
+                                                   //acepta una lista de cualquier cosa
+    public static SelectItem[] getSelectPais(List<Pais> entities, boolean selectOne) {
+        int size = selectOne ? entities.size() + 1 : entities.size();
+        SelectItem[] items = new SelectItem[size];
+        int i = 0;
+        if (selectOne) {
+            items[0] = new SelectItem("0", "Elige un país");
+            i++;
+        }//nombre del objeto : y la lista, todos los objetos del mundo mundial son de la superclase Object
+        for (Pais x : entities) {
+            items[i++] = new SelectItem(x, x.getNomPais());
+        }
+        return items;
     }
 
 }

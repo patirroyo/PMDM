@@ -8,7 +8,7 @@ import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
 
 public class JsfUtil {
-
+                                               //acepta una lista de cualquier cosa
     public static SelectItem[] getSelectItems(List<?> entities, boolean selectOne) {
         int size = selectOne ? entities.size() + 1 : entities.size();
         SelectItem[] items = new SelectItem[size];
@@ -16,7 +16,7 @@ public class JsfUtil {
         if (selectOne) {
             items[0] = new SelectItem("", "---");
             i++;
-        }
+        }//nombre del objeto : y la lista, todos los objetos del mundo mundial son de la superclase Object
         for (Object x : entities) {
             items[i++] = new SelectItem(x, x.toString());
         }

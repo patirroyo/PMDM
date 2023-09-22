@@ -23,7 +23,7 @@ import javax.faces.model.SelectItem;
 public class PremioController implements Serializable {
 
     private Premio current;
-    private DataModel items = null;
+    private DataModel items = null; //el atributo del que hablamos, nadie me impide crear más
     @EJB
     private Repositorios.PremioFacade ejbFacade;
     private PaginationHelper pagination;
@@ -43,10 +43,11 @@ public class PremioController implements Serializable {
     private PremioFacade getFacade() {
         return ejbFacade;
     }
-
+    //con la linea comentada elegimos si sacar los elementos de 10 en 10 o todos
     public PaginationHelper getPagination() {
         if (pagination == null) {
-            pagination = new PaginationHelper(10) {
+            pagination = new PaginationHelper(getItemsAvailableSelectMany().length) {
+            //pagination = new PaginationHelper(10) {
 
                 @Override
                 public int getItemsCount() {
@@ -179,7 +180,7 @@ public class PremioController implements Serializable {
         recreateModel();
         return "List";
     }
-
+    //este método devolverá un vector con todos los premios que hay
     public SelectItem[] getItemsAvailableSelectMany() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
     }
