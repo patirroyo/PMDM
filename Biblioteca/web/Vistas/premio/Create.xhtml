@@ -23,7 +23,7 @@
                     <h:inputText id="tipo" value="#{premioController.selected.tipo}" title="#{bundle.CreatePremioTitle_tipo}" required="true" requiredMessage="#{bundle.CreatePremioRequiredMessage_tipo}"/>
                     <h:outputLabel value="#{bundle.CreatePremioLabel_codPais}" for="codPais" /><!--esto de abajo va a dar lugar a un objeto de html de la marca select(selectOneMenu), dentro tendremos los option (selectItems) el value de selectOneMenu será el valor seleccionado-->
                     <h:selectOneMenu id="codPais" value="#{premioController.selected.codPais}" title="#{bundle.CreatePremioTitle_codPais}" required="true" requiredMessage="#{bundle.CreatePremioRequiredMessage_codPais}">
-                        <f:selectItems value="#{paisController.itemsAvailableSelectOne}"/><!--la propiedad value se usa para pasarle -->
+                        <f:selectItems value="#{paisController.itemsAvailableSelectOne}"/><!--la propiedad value se usa para pasarle la informacion -->
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
