@@ -15,6 +15,7 @@ import Controladores.util.PaginationHelper;
 import Repositorios.AutorFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -194,7 +195,8 @@ public class AutorController implements Serializable {
     }
 
     public SelectItem[] getItemsAvailableSelectOne() {
-        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+        //return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+        return getSelectAutor(ejbFacade.autoresOrdenados(), true);
     }
 
     public Autor getAutor(java.lang.Integer id) {
@@ -239,6 +241,19 @@ public class AutorController implements Serializable {
             }
         }
 
+    }
+    public static SelectItem[] getSelectAutor(List<Autor> entities, boolean selectOne) {
+        int size = selectOne ? entities.size() + 1 : entities.size();
+        SelectItem[] items = new SelectItem[size];
+        int i = 0;
+        if (selectOne) {
+            items[0] = new SelectItem("0", "Elige un autor");
+            i++;
+        }//nombre del objeto : y la lista, todos los objetos del mundo mundial son de la superclase Object
+        for (Autor x : entities) {
+            items[i++] = new SelectItem(x, x.getNomAutor() + " " + x.getApellido1());
+        }
+        return items;
     }
 
 }

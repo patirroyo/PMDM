@@ -184,10 +184,17 @@ public class PaisController implements Serializable {
     public SelectItem[] getItemsAvailableSelectMany() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
     }
-//cambiamos la clase a la que llama
+
     public SelectItem[] getItemsAvailableSelectOne() {
         //return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
-        return getSelectPais(ejbFacade.findAll(), true);
+        //cambiamos la clase a la que llama
+        //return getSelectPais(ejbFacade.findAll(), true);
+        //Ahora salen con el nombre
+        //no me interesa que venga la lista de ejbFacade porque sale desordenada
+        //para ello voy al controlador de Pais y creo una consulta nueva
+        //elijo la nueva consulta
+        return getSelectPais(ejbFacade.paisesOrdenados(), true);
+        
     }
 
     public Pais getPais(java.lang.Integer id) {

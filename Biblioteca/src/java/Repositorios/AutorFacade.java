@@ -5,9 +5,11 @@
 package Repositorios;
 
 import Modelos.Autor;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +28,13 @@ public class AutorFacade extends AbstractFacade<Autor> {
 
     public AutorFacade() {
         super(Autor.class);
+    }
+    
+    public List<Autor> autoresOrdenados(){
+        em = getEntityManager();
+        Query q;
+        q = em.createNamedQuery("Autor.findAllOrdered");
+        return q.getResultList();
     }
     
 }

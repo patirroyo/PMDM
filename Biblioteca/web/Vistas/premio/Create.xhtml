@@ -13,6 +13,9 @@
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+            <!--esto de abajo linea 26 va a dar lugar a un objeto de html de la marca select(selectOneMenu), 
+            dentro tendremos los option (selectItems) el value de selectOneMenu será el valor seleccionado
+            lo pongo aquí porque si no destartala la vista-->
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreatePremioLabel_codPremio}" for="codPremio" />
@@ -21,7 +24,7 @@
                     <h:inputTextarea rows="4" cols="30" id="nomPremio" value="#{premioController.selected.nomPremio}" title="#{bundle.CreatePremioTitle_nomPremio}" required="true" requiredMessage="#{bundle.CreatePremioRequiredMessage_nomPremio}"/>
                     <h:outputLabel value="#{bundle.CreatePremioLabel_tipo}" for="tipo" />
                     <h:inputText id="tipo" value="#{premioController.selected.tipo}" title="#{bundle.CreatePremioTitle_tipo}" required="true" requiredMessage="#{bundle.CreatePremioRequiredMessage_tipo}"/>
-                    <h:outputLabel value="#{bundle.CreatePremioLabel_codPais}" for="codPais" /><!--esto de abajo va a dar lugar a un objeto de html de la marca select(selectOneMenu), dentro tendremos los option (selectItems) el value de selectOneMenu será el valor seleccionado-->
+                    <h:outputLabel value="#{bundle.CreatePremioLabel_codPais}" for="codPais" />
                     <h:selectOneMenu id="codPais" value="#{premioController.selected.codPais}" title="#{bundle.CreatePremioTitle_codPais}" required="true" requiredMessage="#{bundle.CreatePremioRequiredMessage_codPais}">
                         <f:selectItems value="#{paisController.itemsAvailableSelectOne}"/><!--la propiedad value se usa para pasarle la informacion -->
                     </h:selectOneMenu>
