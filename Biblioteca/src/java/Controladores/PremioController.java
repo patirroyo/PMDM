@@ -6,6 +6,7 @@ import Controladores.util.PaginationHelper;
 import Repositorios.PremioFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -186,7 +187,8 @@ public class PremioController implements Serializable {
     }
 
     public SelectItem[] getItemsAvailableSelectOne() {
-        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+        //return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+        return getSelectPremio(ejbFacade.premiosOrdenados(), true);
     }
 
     public Premio getPremio(java.lang.Integer id) {
@@ -232,5 +234,17 @@ public class PremioController implements Serializable {
         }
 
     }
-
+    public static SelectItem[] getSelectPremio(List<Premio> entities, boolean selectOne) {
+        int size = selectOne ? entities.size() + 1 : entities.size();
+        SelectItem[] items = new SelectItem[size];
+        int i = 0;
+        if (selectOne) {
+            items[0] = new SelectItem("0", "Elige un premio");
+            i++;
+        }//nombre del objeto : y la lista, todos los objetos del mundo mundial son de la superclase Object
+        for (Premio x : entities) {
+            items[i++] = new SelectItem(x, x.getNomPremio());
+        }
+        return items;
+    }
 }

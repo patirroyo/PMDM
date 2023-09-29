@@ -6,9 +6,11 @@
 package Repositorios;
 
 import Modelos.Premio;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +30,10 @@ public class PremioFacade extends AbstractFacade<Premio> {
     public PremioFacade() {
         super(Premio.class);
     }
-    
+    public List premiosOrdenados(){
+        em = getEntityManager();
+        Query q;
+        q = em.createNamedQuery("Premio.findAllOrdered");
+        return q.getResultList();
+    }
 }
