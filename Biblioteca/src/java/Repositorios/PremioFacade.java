@@ -36,4 +36,16 @@ public class PremioFacade extends AbstractFacade<Premio> {
         q = em.createNamedQuery("Premio.findAllOrdered");
         return q.getResultList();
     }
+    public List premiosAutorOrdenados(){
+        em = getEntityManager();
+        Query q;
+        q = em.createNamedQuery("Premio.findAllOrderedA");
+        return q.getResultList();
+    }
+    public List premiosLibroOrdenados(){
+        em = getEntityManager();
+        Query q;
+        q = em.createNamedQuery("Premio.findAllOrderedL");
+        return q.getResultList();
+    }
 }

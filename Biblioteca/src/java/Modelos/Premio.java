@@ -35,7 +35,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({//aquí crea consultas básicas y a cada una le da un nombre, es un SQL un poco especial.
     @NamedQuery(name = "Premio.findAll", query = "SELECT p FROM Premio p")
     //en esta sentencia cuando quieres recibir un parámetro pones :, el codPremio te lo inventas tú y luego te tienes que acordar; 
-    , @NamedQuery(name = "Premio.findAllOrdered", query = "SELECT p FROM Premio p ORDER BY p.nomPremio")
+    , @NamedQuery(name = "Premio.findAllOrderedL", query = "SELECT p FROM Premio p WHERE p.tipo = 'L' ORDER BY p.nomPremio")
+    , @NamedQuery(name = "Premio.findAllOrderedA", query = "SELECT p FROM Premio p WHERE p.tipo = 'A' ORDER BY p.nomPremio")
     , @NamedQuery(name = "Premio.findByCodPremio", query = "SELECT p FROM Premio p WHERE p.codPremio = :codPremio")
     , @NamedQuery(name = "Premio.findByTipo", query = "SELECT p FROM Premio p WHERE p.tipo = :tipo")})
 public class Premio implements Serializable {
