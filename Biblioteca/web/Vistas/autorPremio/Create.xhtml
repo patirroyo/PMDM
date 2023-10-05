@@ -23,7 +23,7 @@
                     </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateAutorPremioLabel_premio}" for="premio" />
                     <h:selectOneMenu id="premio" value="#{autorPremioController.selected.premio}" title="#{bundle.CreateAutorPremioTitle_premio}" required="true" requiredMessage="#{bundle.CreateAutorPremioRequiredMessage_premio}">
-                        <f:selectItems value="#{premioController.itemsAvailableSelectOne}"/>
+                        <f:selectItems value="#{premioController.itemsPorAutor}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
