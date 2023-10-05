@@ -13,7 +13,7 @@
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
                 <p:dataTable value="#{autorController.items}" var="item" style="border:solid 1px"
-                             paginator="true" rows="10">
+                             paginator="true" rows="10" rowsPerPageTemplate="5,10,15,20" >
                     <p:column headerText="Cód." sortBy="#{item.codAutor}" width="50" style="text-align: center">
                         <h:outputText value="#{item.codAutor}"/>
                     </p:column>
