@@ -251,7 +251,7 @@ public class AutorController implements Serializable {
             i++;
         }//nombre del objeto : y la lista, todos los objetos del mundo mundial son de la superclase Object
         for (Autor x : entities) {
-            items[i++] = new SelectItem(x, x.getNomAutor() + " " + x.getApellido1());
+            items[i++] = new SelectItem(x, x.getApellido1() + " " + x.getApellido2() + ", " + x.getNomAutor());
         }
         return items;
     }
