@@ -56,7 +56,8 @@ public class AutorController implements Serializable {
 
     public PaginationHelper getPagination() {
         if (pagination == null) {
-            pagination = new PaginationHelper(10) {
+            //de esta manera obtengo el número de autores que hay
+            pagination = new PaginationHelper(this.getItemsAvailableSelectOne().length) {
 
                 @Override
                 public int getItemsCount() {
