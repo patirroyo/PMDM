@@ -27,7 +27,9 @@
                         <h:outputText value="#{autor.apellido2}"/>
                     </p:column>
                     <p:column headerText="F.Nacimiento" sortBy="#{autor.FNac}">
-                        <h:outputText value="#{autor.FNac}"/>
+                        <h:outputText value="#{autor.FNac}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
                     </p:column>
                     <p:column headerText="Foto" style="text-align: center" ><!-- aquí añado la foto desde la carpeta resources,
                                                                             para ello library que manda a resources y el nombre que 
@@ -44,14 +46,12 @@
                     <p:column headerText="País" width="20%">
                         <h:outputText value="#{autor.nacionalidad.nomPais}"/>
                     </p:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{bundle.ListAutorTitle_FNac}"/>
-                        </f:facet>
-                        <h:outputText value="#{autor.FNac}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </h:outputText>
-                    </h:column>
+                    <p:column headerText="Libros" width="20%" >
+                        <h:selectManyListbox disabled="true" style="width: 250px; background-color: transparent; border: none; font-size: small" size="3">
+                            <f:selectItems value="#{autor.libroList}" var="libro" itemValue="#{libro}" itemLabel="#{libro.nomLibro}"/><!--aquí meto un objeto en cada fila, 
+                            un libro, pero se mostrará el título con el itemLabel-->
+                        </h:selectManyListbox>
+                    </p:column>
                 </p:dataTable>    
                 <br />
                 <h:commandLink action="#{autorController.prepareCreate}" value="#{bundle.ListAutorCreateLink}"/>
