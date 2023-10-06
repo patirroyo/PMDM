@@ -26,6 +26,14 @@
                     <p:column headerText="Apellido2" sortBy="#{item.apellido2}">
                         <h:outputText value="#{item.apellido2}"/>
                     </p:column>
+                    <p:column headerText="Foto" style="text-align: center" ><!-- aquí añado la foto desde la carpeta resources,
+                                                                            para ello library que manda a resources y el nombre que 
+                                                                            está en la base de datos.-->
+                        <h:outputLink value="/Biblioteca/faces/javax.faces.resources/#{item.foto}?ln=Autores"><!--Agustín no sabe porqué 
+                                                                                                            esto pero se hace así-->
+                            <h:graphicImage library="Autores" name="#{item.foto}" height="45px"/>
+                        </h:outputLink>
+                    </p:column>
 
                     <h:column>
                         <f:facet name="header">
