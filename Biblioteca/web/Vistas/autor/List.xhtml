@@ -43,7 +43,10 @@
                             </h:outputLink>
                         </p:lightBox>    
                     </p:column>
-                    <p:column headerText="País" width="20%">
+                    <p:column headerText="Localidad">
+                        <h:outputText value="#{autor.localidad}"/>
+                    </p:column>
+                    <p:column headerText="País">
                         <h:outputText value="#{autor.nacionalidad.nomPais}"/>
                     </p:column>
                     <p:column headerText="Libros" width="20%" >
