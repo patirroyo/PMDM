@@ -26,10 +26,18 @@
                     <p:column headerText="Apellido2" sortBy="#{autor.apellido2}">
                         <h:outputText value="#{autor.apellido2}"/>
                     </p:column>
-                    <p:column headerText="F.Nacimiento" sortBy="#{autor.FNac}">
+                    <p:column headerText="F.Nac" sortBy="#{autor.FNac}">
                         <h:outputText value="#{autor.FNac}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:outputText>
+                    </p:column>
+                    <p:column headerText="F.Def" sortBy="#{autor.FDef}">
+                        <h:outputText value="#{autor.FDef}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Edad">
+                        <h:outputText value="#{autorController.calcularEdad(autor.FNac)}"/>
                     </p:column>
                     <p:column headerText="Foto" style="text-align: center" ><!-- aquí añado la foto desde la carpeta resources,
                                                                             para ello library que manda a resources y el nombre que 
@@ -43,12 +51,11 @@
                             </h:outputLink>
                         </p:lightBox>    
                     </p:column>
+                    <p:column headerText="País">
+                        <h:graphicImage library="banderas" name="#{autor.nacionalidad.bandera}" height="45px"/>
+                    </p:column>
                     <p:column headerText="Localidad">
                         <h:outputText value="#{autor.localidad}"/>
-                    </p:column>
-                    <p:column headerText="País">
-                        <h:outputText value="#{autor.nacionalidad.nomPais}"/>
-                        <h:graphicImage library="banderas" name="#{autor.nacionalidad.bandera}"/>
                     </p:column>
                     <p:column headerText="Libros" width="20%" >
                         <h:selectManyListbox disabled="true" style="width: 250px; background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">

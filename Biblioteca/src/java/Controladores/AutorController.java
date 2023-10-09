@@ -15,7 +15,10 @@ import Controladores.util.PaginationHelper;
 import Repositorios.AutorFacade;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -256,5 +259,15 @@ public class AutorController implements Serializable {
         }
         return items;
     }
-
+    public static int calcularEdad(Date fnac){
+        Calendar fechaActual = Calendar.getInstance();
+        Calendar fechaNacimiento = Calendar.getInstance();
+        fechaNacimiento.setTime(fnac);
+        int ano = fechaActual.get(Calendar.YEAR) - fechaNacimiento.get(Calendar.YEAR);
+        int mes = fechaActual.get(Calendar.MONTH) - fechaNacimiento.get(Calendar.MONTH);
+        int dia = fechaActual.get(Calendar.DATE) - fechaNacimiento.get(Calendar.DATE);
+        if((mes < 0) || ((mes==0) && (dia < 0)))
+            ano--;
+        return ano;
+    }
 }
