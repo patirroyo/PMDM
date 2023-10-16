@@ -46,7 +46,7 @@ public class LibroController implements Serializable {
 
     public PaginationHelper getPagination() {
         if (pagination == null) {
-            pagination = new PaginationHelper(10) {
+            pagination = new PaginationHelper(this.getItemsAvailableSelectOne().length) {
 
                 @Override
                 public int getItemsCount() {
