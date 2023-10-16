@@ -20,7 +20,7 @@
                     <p:column headerText="Título" sortBy="#{libro.nomLibro}">
                         <h:outputText value="#{libro.nomLibro}"/>
                     </p:column>
-                    <p:column headerText="Año" sortBy="#{libro.nomLibro}" width="50" style="text-align: center" >
+                    <p:column headerText="Año" sortBy="#{libro.ano}" width="50" style="text-align: center" >
                         <h:outputText value="#{libro.ano}"/>
                     </p:column>
                     <p:column headerText="Foto" style="text-align: center" ><!-- aquí añado la foto desde la carpeta resources,
@@ -35,25 +35,26 @@
                         </p:lightBox>    
                     </p:column>
                     <p:column headerText="Autores" width="20%" >
-                        <h:selectManyListbox disabled="true" style="width: 250px; background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">
+                        <h:selectManyListbox disabled="true" style="background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">
                             <f:selectItems value="#{libro.autorList}" var="autor" itemValue="#{autor}" itemLabel="#{autor.nomAutor} #{autor.apellido1} #{autor.apellido2}"/><!--aquí meto un objeto en cada fila, 
                             un libro, pero se mostrará el título con el itemLabel-->
                         </h:selectManyListbox>
                     </p:column>
                     <p:column headerText="Premios" width="20%" >
-                        <h:selectManyListbox disabled="true" style="width: 250px; background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">
-                            <f:selectItems value="#{libro.premioList}" var="premio" itemValue="#{premio}" itemLabel="#{premio.nomPremio}"/><!--aquí meto un objeto en cada fila, 
-                            un libro, pero se mostrará el título con el itemLabel-->
+                        <h:selectManyListbox disabled="true" style="background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">
+                            <f:selectItems value="#{libro.premioList}" var="premio" itemValue="#{premio}" itemLabel="#{premio.nomPremio}"/>
                         </h:selectManyListbox>
                     </p:column>
+                    <p:column headerText="Pelicula">
+                        <h:graphicImage rendered="#{libro.tienePelicula(libro)}" library="iconos" name="trailer.png" height="45px"/>
+                    </p:column>
                     
-                    
-                    <p:column headerText="Cód." sortBy="#{libro.codAutor}" width="150" style="text-align: center">
+                    <p:column width="150">
                         <h:commandLink action="#{libroController.prepareView}" value="#{bundle.ListLibroViewLink}"/>
                         <h:outputText value=" "/>
                         <h:commandLink action="#{libroController.prepareEdit}" value="#{bundle.ListLibroEditLink}"/>
                         <h:outputText value=" "/>
-                        <h:commandLink action="#{libroController.destroy}" value="#{bundle.ListLibroDestroyLink}"/><h:outputText value="#{autor.codAutor}"/>
+                        <h:commandLink action="#{libroController.destroy}" value="#{bundle.ListLibroDestroyLink}"/>
                     </p:column>
                 </p:dataTable>
                 <br />
