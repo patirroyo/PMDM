@@ -37,7 +37,7 @@
                         </h:outputText>
                     </p:column>
                     <p:column headerText="Edad">
-                        <h:outputText rendered="#{autorController.estaVivo(autor.FDef)}" value="#{autorController.calcularEdad(autor.FNac)}"/>
+                        <h:outputText rendered="#{autorController.estaVivo(autor)}" value="#{autorController.calcularEdad(autor.FNac)}"/>
                     </p:column>
                     <p:column headerText="Foto" style="text-align: center" ><!-- aquí añado la foto desde la carpeta resources,
                                                                             para ello library que manda a resources y el nombre que 

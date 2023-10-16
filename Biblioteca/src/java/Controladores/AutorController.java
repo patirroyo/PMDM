@@ -270,8 +270,8 @@ public class AutorController implements Serializable {
             ano--;
         return ano;
     }
-    public static boolean estaVivo(Date fDef){
-        if(fDef == null)
+    public static boolean estaVivo(Autor autor){
+        if(autor.getFDef() == null)
             return true;
         return false;
     }
