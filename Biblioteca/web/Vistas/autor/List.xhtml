@@ -63,6 +63,15 @@
                             un libro, pero se mostrará el título con el itemLabel-->
                         </h:selectManyListbox>
                     </p:column>
+                    <p:column style="width: 100px">
+                        <h:commandLink action="#{autorController.prepareView()}" value="Ver"/>
+                        <h:outputText value="  "/>
+                        <h:commandLink action="#{autorController.prepareEdit()}" value="Editar"/>
+                        <h:outputText value="  "/>
+                        <h:commandLink action="#{autorController.destroyAndView()}" value="Borrar"/>
+                        <h:outputText value="  "/>
+                        
+                    </p:column>
                 </p:dataTable>    
                 <br />
                 <h:commandLink action="#{autorController.prepareCreate}" value="#{bundle.ListAutorCreateLink}"/>
