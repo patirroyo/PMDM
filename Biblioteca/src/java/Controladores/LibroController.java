@@ -229,7 +229,11 @@ public class LibroController implements Serializable {
                 throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Libro.class.getName());
             }
         }
-
+    }
+    public boolean tienePelicula(Libro libro){
+            if(libro.getPelicula() == "")
+                return false;
+            return true;
     }
 
 }

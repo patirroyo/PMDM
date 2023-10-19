@@ -190,10 +190,4 @@ public class Libro implements Serializable {
     public String toString() {
         return "Modelos.Libro[ codLibro=" + codLibro + " ]";
     }
-    
-    public boolean tienePelicula(Libro libro){
-        if(libro.pelicula == "")
-            return false;
-        return true;
-    }
 }
