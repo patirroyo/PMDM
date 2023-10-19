@@ -36,6 +36,7 @@ public class LibroController implements Serializable {
 
     public LibroController() {
     }
+    
     public Autor getAutor() {
         return autor;
     }

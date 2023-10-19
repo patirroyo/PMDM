@@ -15,7 +15,7 @@
                 <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
                     <f:facet name="left">
                         <p:selectOneMenu id="unAutor" value="#{libroController.autor}">
-                            <f:selectItems value="#{autorController.itemsAvailableSelectOne}"/> <!--acabado en s, porque sera algo para una lista-->
+                            <f:selectItems value="#{autorController.itemsAvailableSelectOne}" actionListener="#{}"/> <!--acabado en s, porque sera algo para una lista-->
                         </p:selectOneMenu>
                     </f:facet>
                     
