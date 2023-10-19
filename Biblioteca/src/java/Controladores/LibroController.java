@@ -3,9 +3,11 @@ package Controladores;
 import Modelos.Libro;
 import Controladores.util.JsfUtil;
 import Controladores.util.PaginationHelper;
+import Modelos.Autor;
 import Repositorios.LibroFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -28,10 +30,28 @@ public class LibroController implements Serializable {
     private Repositorios.LibroFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private Autor autor;
+    private List<Libro> listaAutor;
+
 
     public LibroController() {
     }
+    public Autor getAutor() {
+        return autor;
+    }
 
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+
+    public List<Libro> getListaAutor() {
+        return listaAutor;
+    }
+
+    public void setListaAutor(List<Libro> listaAutor) {
+        this.listaAutor = listaAutor;
+    }
+    
     public Libro getSelected() {
         if (current == null) {
             current = new Libro();

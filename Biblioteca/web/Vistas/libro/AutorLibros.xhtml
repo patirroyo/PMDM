@@ -12,7 +12,21 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <p:dataTable value="#{libroController.items}" var="libro" style="border:solid 1px"
+                <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
+                    <f:facet name="left">
+                        <p:selectOneMenu id="unAutor" value="#{libroController.autor}">
+                            <f:selectItems value="#{autorController.itemsAvailableSelectOne}"/> <!--acabado en s, porque sera algo para una lista-->
+                        </p:selectOneMenu>
+                    </f:facet>
+                    
+                </p:toolbar>
+                
+                
+            </h:form>
+            
+            
+            <h:form>
+                <p:dataTable value="#{libroController.listaAutor}" var="libro" style="border:solid 1px"
                          paginator="true" rows="10" rowsPerPageTemplate="5,10,15,20" >
                     <p:column headerText="Cód." sortBy="#{libro.codLibro}" width="50" style="text-align: center">
                         <h:outputText value="#{libro.codLibro}"/>
