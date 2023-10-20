@@ -7,9 +7,6 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ListLibroTitle}"></h:outputText>
-        </ui:define>
         <ui:define name="body">
             <h:form>
                 <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
@@ -46,7 +43,7 @@
                             <h:outputLink value="/Biblioteca/faces/javax.faces.resources/#{libro.portada}?ln=portadas" 
                                           title="#{libro.nomLibro} #{libro.ano}"><!--Agustín no sabe porqué esto pero se hace así
                                 para el nombre debajo de la ventana del lightBox ponemos el title-->
-                                <h:graphicImage library="portadas" name="#{libro.portada}" height="100px"/>
+                                <h:graphicImage library="portadas" name="#{libro.portada}" height="60px"/>
                             </h:outputLink>
                         </p:lightBox>    
                     </p:column>
@@ -63,14 +60,15 @@
                     </p:column>
                 </p:dataTable>
                 <p:galleria value="#{libroController.listaAutor}" var="libro" panelWidth="250" panelHeight="400"
-                            style="float: right; margin-right: 70px" showCaption="false" >
+                            style="float: right; margin-right: 70px" showCaption="true" ><!--el showCaption es para que muestre el title-->
                     <p:graphicImage library="portadas" name="#{libro.portada}" title="#{libro.ano}"></p:graphicImage>
                 </p:galleria>
+                <p:dock position="bottom">
+                    <p:menuitem value="Listado" icon="/resources/iconos/listado.png" url="List.xhtml"/>
+                    <p:menuitem value="Inicio" icon="/resources/iconos/home.ico" outcome="/index" url="../../index.xhtml"/>
+                </p:dock>
                 <br />
-                <h:commandLink action="#{libroController.prepareCreate}" value="#{bundle.ListLibroCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListLibroIndexLink}"/>
+                
             </h:form>
         </ui:define>
     </ui:composition>
