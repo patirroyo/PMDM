@@ -5,10 +5,13 @@
  */
 package Repositorios;
 
+import Modelos.Autor;
 import Modelos.Libro;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +30,13 @@ public class LibroFacade extends AbstractFacade<Libro> {
 
     public LibroFacade() {
         super(Libro.class);
+    }
+    
+    public List<Libro> LibrosPorAutor(Autor autor){
+        em = getEntityManager();
+        Query q;
+        q = em.createNamedQuery("Libro.findByAutor").setParameter("elAutor", autor);
+        return q.getResultList();
     }
     
 }

@@ -256,5 +256,8 @@ public class LibroController implements Serializable {
                 return false;
             return true;
     }
+    public void cargarLista(){
+        listaAutor = ejbFacade.LibrosPorAutor(autor);
+    }
 
 }
