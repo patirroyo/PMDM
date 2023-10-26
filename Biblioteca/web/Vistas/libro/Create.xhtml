@@ -29,8 +29,8 @@
                         <p:inputText id="nomArchivo" value="#{libroController.selected.nomArchivo}" title="#{bundle.CreateLibroTitle_nomArchivo}" required="true" requiredMessage="#{bundle.CreateLibroRequiredMessage_nomArchivo}"/>
                         <p:outputLabel value="Película" for="pelicula" />
                         <p:inputText id="pelicula" value="#{libroController.selected.pelicula}" title="#{bundle.CreateLibroTitle_pelicula}" />
-                        <p:outputLabel value="Autores" for="autores" />
-                        <h:selectManyListbox id ="autores" style="background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="10">
+                        <p:outputLabel value="Autores:" for="losAutores" />
+                        <h:selectManyListbox value="#{libroController.selected.autorList}" id ="losAutores" style="width: 240px" size="5">
                             <f:selectItems value="#{autorController.itemsAvailableSelectOne}" var="autor" itemValue="#{autor.value}" itemLabel="#{autor.label}"/>
                         </h:selectManyListbox>
                         <p:outputLabel value="#{bundle.CreateLibroLabel_comentario}" for="comentario" />
