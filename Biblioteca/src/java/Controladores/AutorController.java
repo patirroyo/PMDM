@@ -195,7 +195,8 @@ public class AutorController implements Serializable {
     }
 
     public SelectItem[] getItemsAvailableSelectMany() {
-        return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
+        //return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
+        return getSelectAutor(ejbFacade.autoresOrdenados(), false);
     }
 
     public SelectItem[] getItemsAvailableSelectOne() {
@@ -253,7 +254,7 @@ public class AutorController implements Serializable {
         if (selectOne) {
             items[0] = new SelectItem("0", "Elige un autor");
             i++;
-        }//nombre del objeto : y la lista, todos los objetos del mundo mundial son de la superclase Object
+        }//nombre del objeto : y la lista, todos los objetos del mundo mundial son de la superclase Object*/
         for (Autor x : entities) {
             items[i++] = new SelectItem(x, x.getApellido1() + " " + x.getApellido2() + ", " + x.getNomAutor());
         }

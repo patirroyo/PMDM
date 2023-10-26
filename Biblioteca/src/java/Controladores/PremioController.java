@@ -183,7 +183,8 @@ public class PremioController implements Serializable {
     }
     //este método devolverá un vector con todos los premios que hay
     public SelectItem[] getItemsAvailableSelectMany() {
-        return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
+        //return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
+        return getSelectPremio(ejbFacade.premiosOrdenados(), false);
     }
 
     public SelectItem[] getItemsAvailableSelectOne() {
@@ -197,7 +198,7 @@ public class PremioController implements Serializable {
     }
     public SelectItem[] getItemsPorLibro() {
         //return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
-        return getSelectPremio(ejbFacade.premiosLibroOrdenados(), true);
+        return getSelectPremio(ejbFacade.premiosLibroOrdenados(), false);
     }
     
     
@@ -247,13 +248,13 @@ public class PremioController implements Serializable {
 
     }
     public static SelectItem[] getSelectPremio(List<Premio> entities, boolean selectOne) {
-        int size = selectOne ? entities.size() + 1 : entities.size();
-        SelectItem[] items = new SelectItem[size];
+        //int size = selectOne ? entities.size() + 1 : entities.size();
+        SelectItem[] items = new SelectItem[entities.size()];
         int i = 0;
-        if (selectOne) {
+        /*if (selectOne) {
             items[0] = new SelectItem("0", "Elige un premio");
             i++;
-        }//nombre del objeto : y la lista, todos los objetos del mundo mundial son de la superclase Object
+        }//nombre del objeto : y la lista, todos los objetos del mundo mundial son de la superclase Object*/
         for (Premio x : entities) {
             items[i++] = new SelectItem(x, x.getNomPremio());
         }
