@@ -30,8 +30,12 @@
                         <p:outputLabel value="Película" for="pelicula" />
                         <p:inputText id="pelicula" value="#{libroController.selected.pelicula}" title="#{bundle.CreateLibroTitle_pelicula}" />
                         <p:outputLabel value="Autores:" for="losAutores" />
-                        <h:selectManyListbox value="#{libroController.selected.autorList}" id ="losAutores" style="width: 240px" size="5">
+                        <h:selectManyListbox value="#{libroController.selected.autorList}" id ="losAutores" style="width: 240px; margin-right: 50px" size="5">
                             <f:selectItems value="#{autorController.itemsAvailableSelectOne}" var="autor" itemValue="#{autor.value}" itemLabel="#{autor.label}"/>
+                        </h:selectManyListbox>
+                        <p:outputLabel value="Premios:" for="losPremios" />
+                        <h:selectManyListbox value="#{libroController.selected.premioList}" id ="losPremios" style="width: 240px" size="5">
+                            <f:selectItems value="#{premioController.itemsPorLibro}" var="premio" itemValue="#{premio.value}" itemLabel="#{premio.label}"/>
                         </h:selectManyListbox>
                         <p:outputLabel value="#{bundle.CreateLibroLabel_comentario}" for="comentario" />
                         <p:inputTextarea rows="4" cols="30" id="comentario" value="#{libroController.selected.comentario}" title="#{bundle.CreateLibroTitle_comentario}" />
