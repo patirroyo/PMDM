@@ -208,7 +208,7 @@ public class PremioController implements Serializable {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = Premio.class)
+    @FacesConverter(forClass = Premio.class, value="premiosConverter")
     public static class PremioControllerConverter implements Converter {
 
         @Override

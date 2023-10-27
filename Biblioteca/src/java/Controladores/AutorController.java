@@ -208,7 +208,7 @@ public class AutorController implements Serializable {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = Autor.class)
+    @FacesConverter(forClass = Autor.class, value="autoresConverter") //hay que darle el value para la validación
     public static class AutorControllerConverter implements Converter {
 
         @Override

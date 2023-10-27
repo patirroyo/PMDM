@@ -235,7 +235,6 @@ public class LibroController implements Serializable {
 
     @FacesConverter(forClass = Libro.class)
     public static class LibroControllerConverter implements Converter {
-
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
