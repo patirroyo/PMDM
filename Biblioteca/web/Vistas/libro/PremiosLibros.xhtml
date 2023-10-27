@@ -12,7 +12,8 @@
                 <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
                     <f:facet name="left">
                         <p:selectOneMenu id="unPremio" value="#{libroController.premio}" onchange="#{libroController.cargarListaPremio()} submit()">
-                            <f:selectItems value="#{premioController.itemsAvailableSelectOne}" /> <!--acabado en s, porque sera algo para una lista-->
+                            <f:selectItems value="#{premioController.itemsAvailableSelectMany}" /> <!--acabado en s, porque sera algo para una lista-->
+                            <f:converter converterId="premiosConverter"/>
                         </p:selectOneMenu>
                     </f:facet>
                 </p:toolbar>

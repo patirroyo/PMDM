@@ -3,13 +3,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ListAutorPremioTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+        <h:form>
+            <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
+                <f:facet name="left">
+                    <p:selectOneMenu id="unAutor"  >
+                        <f:selectItems value="#{autorController.itemsAvailableSelectMany}" /> <!--acabado en s, porque sera algo para una lista-->
+                        <!--<f:converter converterId="autorConverter"/>-->
+                    </p:selectOneMenu>
+                </f:facet>
+            </p:toolbar>
+
+
+        </h:form>
+
+
+        <h:form>
+            <p:dataTable value="#{autorPremioController.items}" var="autorPremio" style="width: 70%;float: left"><!--en la vista los valores que tengan serán 
+                                                                                  los mismos que los del controlador-->
+                 <p:column headerText="Premio" sortBy="#{autorPremio.premio}" style="text-align: center">
+                    <h:outputText value="#{autorPremio.premio}"/>
+                </p:column>
+                <p:column headerText="Año" sortBy="#{autorPremio.autorPremioPK.anio}" style="text-align: center">
+                    <h:outputText value="#{autorPremio.autorPremioPK.anio}"/>
+                </p:column>
+                <p:column>
+                    <h:commandLink action="#{autorPremioController.prepareView}" value="#{bundle.ListAutorPremioViewLink}"/>
+                    <h:outputText value=" "/>
+                    <h:commandLink action="#{autorPremioController.prepareEdit}" value="#{bundle.ListAutorPremioEditLink}"/>
+                    <h:outputText value=" "/>
+                    <h:commandLink action="#{autorPremioController.destroy}" value="#{bundle.ListAutorPremioDestroyLink}"/>
+                </p:column>
+                
+            </p:dataTable>
+            <p:galleria value="#{libroController.listaPremio}" var="libro" panelWidth="250" panelHeight="400"
+                        style="float: right; margin-right: 70px" showCaption="true" ><!--el showCaption es para que muestre el title-->
+                <p:graphicImage library="portadas" name="#{libro.portada}" title="#{libro.ano}"></p:graphicImage>
+            </p:galleria>
+            <p:dock position="bottom">
+                <p:menuitem value="Listado" icon="/resources/iconos/listado.png" url="List.xhtml"/>
+                <p:menuitem value="Inicio" icon="/resources/iconos/home.ico" outcome="/index" url="../../index.xhtml"/>
+            </p:dock>
+            <br />
+
+        </h:form>
+    
             <h:form styleClass="jsfcrud_list_form">
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -42,11 +88,7 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{autorPremioController.prepareView}" value="#{bundle.ListAutorPremioViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{autorPremioController.prepareEdit}" value="#{bundle.ListAutorPremioEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{autorPremioController.destroy}" value="#{bundle.ListAutorPremioDestroyLink}"/>
+                            
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>

@@ -31,12 +31,12 @@
                         <p:inputText id="pelicula" value="#{libroController.selected.pelicula}" title="#{bundle.CreateLibroTitle_pelicula}" />
                         <p:outputLabel value="Autores:" for="losAutores" />
                         <h:selectManyListbox value="#{libroController.selected.autorList}" id ="losAutores" style="width: 240px; margin-right: 50px" size="5">
-                            <f:selectItems value="#{autorController.itemsAvailableSelectMany}" var="autor" itemValue="autor"/>
+                            <f:selectItems value="#{autorController.itemsAvailableSelectMany}" />
                             <f:converter converterId="autoresConverter"/>
                         </h:selectManyListbox>
                         <p:outputLabel value="Premios:" for="losPremios" />
                         <h:selectManyListbox value="#{libroController.selected.premioList}" id ="losPremios" style="width: 240px" size="5">
-                            <f:selectItems value="#{premioController.itemsPorLibro}" var="premio" itemValue="premio"/>
+                            <f:selectItems value="#{premioController.itemsPorLibro}"/>
                             <f:converter converterId="premiosConverter"/>
                         </h:selectManyListbox>
                         <p:outputLabel value="#{bundle.CreateLibroLabel_comentario}" for="comentario" />
