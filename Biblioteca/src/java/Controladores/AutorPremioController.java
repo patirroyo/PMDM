@@ -31,36 +31,6 @@ public class AutorPremioController implements Serializable {
     private Repositorios.AutorPremioFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-    private Autor autor;
-    private Premio premio;
-    private List listaAutor;
-
-    public AutorPremioController() {
-    }
-
-    public Autor getAutor() {
-        return autor;
-    }
-
-    public void setAutor(Autor autor) {
-        this.autor = autor;
-    }
-
-    public Premio getPremio() {
-        return premio;
-    }
-
-    public void setPremio(Premio premio) {
-        this.premio = premio;
-    }
-
-    public List getListaAutor() {
-        return listaAutor;
-    }
-
-    public void setListaAutor(List listaAutor) {
-        this.listaAutor = listaAutor;
-    }
     
     public AutorPremio getSelected() {
         if (current == null) {

@@ -15,9 +15,9 @@
         <h:form>
             <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
                 <f:facet name="left">
-                    <p:selectOneMenu id="unAutor" value="#{autorPremioController.premio}" onchange="#{autorPremioController.cargarListaPremios()} submit()">
-                        <f:selectItems value="#{premioController.itemsAvailableSelectMany}" /> <!--acabado en s, porque sera algo para una lista-->
-                        <!--<f:converter converterId="autorConverter"/>-->
+                    <p:selectOneMenu id="unPremio" value="#{autorController.premio}" onchange="#{autorController.cargarListaAutores()} submit()">
+                        <f:selectItems value="#{premioController.itemsPorAutor}"/>
+                        <f:converter converterId="premiosConverter"/>
                     </p:selectOneMenu>
                 </f:facet>
             </p:toolbar>
@@ -27,26 +27,61 @@
 
 
         <h:form>
-            <p:dataTable value="#{autorPremioController.items}" var="autorPremio" style="width: 70%;float: left"><!--en la vista los valores que tengan serán 
-                                                                                  los mismos que los del controlador-->
-                 <p:column headerText="Premio" sortBy="#{autorPremio.premio}" style="text-align: center">
-                    <h:outputText value="#{autorPremio.premio}"/>
-                </p:column>
-                <p:column headerText="Año" sortBy="#{autorPremio.autorPremioPK.anio}" style="text-align: center">
-                    <h:outputText value="#{autorPremio.autorPremioPK.anio}"/>
-                </p:column>
-                <p:column>
-                    <h:commandLink action="#{autorPremioController.prepareView}" value="#{bundle.ListAutorPremioViewLink}"/>
-                    <h:outputText value=" "/>
-                    <h:commandLink action="#{autorPremioController.prepareEdit}" value="#{bundle.ListAutorPremioEditLink}"/>
-                    <h:outputText value=" "/>
-                    <h:commandLink action="#{autorPremioController.destroy}" value="#{bundle.ListAutorPremioDestroyLink}"/>
-                </p:column>
+            <p:dataTable value="#{autorController.autoresList}" var="autor" style="width: 65%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
+                <p:column headerText="Cód." sortBy="#{autor.codAutor}" width="30" style="text-align: center">
+                        <h:outputText value="#{autor.codAutor}"/>
+                    </p:column>
+                    <p:column headerText="Nombre" sortBy="#{autor.nomAutor}">
+                        <h:outputText value="#{autor.nomAutor}"/>
+                    </p:column>
+                    <p:column headerText="Apellido1" sortBy="#{autor.apellido1}">
+                        <h:outputText value="#{autor.apellido1}"/>
+                    </p:column>
+                    <p:column headerText="Apellido2" sortBy="#{autor.apellido2}">
+                        <h:outputText value="#{autor.apellido2}"/>
+                    </p:column>
+                    <p:column headerText="F.Nac" sortBy="#{autor.FNac}">
+                        <h:outputText value="#{autor.FNac}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="F.Def" sortBy="#{autor.FDef}">
+                        <h:outputText value="#{autor.FDef}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Edad">
+                        <h:outputText rendered="#{autorController.estaVivo(autor)}" value="#{autorController.calcularEdad(autor.FNac)}"/>
+                    </p:column>
+                    <p:column headerText="Foto" style="text-align: center" ><!-- aquí añado la foto desde la carpeta resources,
+                                                                            para ello library que manda a resources y el nombre que 
+                                                                            está en la base de datos.-->
+                        <p:lightBox styleClass="imagebox"><!--esto lo que hace es adornar-->
+                            <h:outputLink value="/Biblioteca/faces/javax.faces.resources/#{autor.foto}?ln=Autores" 
+                                          title="#{autor.nomAutor} #{autor.apellido1} #{autor.apellido2}"><!--Agustín no sabe porqué 
+                                                                                                                esto pero se hace así
+                                para el nombre debajo de la ventana del lightBox ponemos el title-->
+                                <h:graphicImage library="Autores" name="#{autor.foto}" height="45px"/>
+                            </h:outputLink>
+                        </p:lightBox>    
+                    </p:column>
+                    <p:column headerText="País">
+                        <h:graphicImage library="banderas" name="#{autor.nacionalidad.bandera}" height="45px"/>
+                    </p:column>
+                    <p:column headerText="Localidad">
+                        <h:outputText value="#{autor.localidad}"/>
+                    </p:column>
+                    <p:column headerText="Libros" width="20%" >
+                        <h:selectManyListbox disabled="true" style="width: 250px; background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">
+                            <f:selectItems value="#{autor.libroList}" var="libro" itemValue="#{libro}" itemLabel="#{libro.nomLibro}"/><!--aquí meto un objeto en cada fila, 
+                            un libro, pero se mostrará el título con el itemLabel-->
+                        </h:selectManyListbox>
+                    </p:column>
                 
             </p:dataTable>
-            <p:galleria value="#{libroController.listaPremio}" var="libro" panelWidth="250" panelHeight="400"
-                        style="float: right; margin-right: 70px" showCaption="true" ><!--el showCaption es para que muestre el title-->
-                <p:graphicImage library="portadas" name="#{libro.portada}" title="#{libro.ano}"></p:graphicImage>
+            <p:galleria value="#{autorController.autoresList}" var="autor" panelWidth="400" panelHeight="300"
+                        style="float: right; margin-right: 70px;" showCaption="true" ><!--el showCaption es para que muestre el title-->
+                <p:graphicImage library="Autores" name="#{autor.foto}" title="#{autor.nomAutor} #{autor.apellido1}" style="width: 100%"></p:graphicImage>
             </p:galleria>
             <p:dock position="bottom">
                 <p:menuitem value="Listado" icon="/resources/iconos/listado.png" url="List.xhtml"/>
@@ -56,48 +91,7 @@
 
         </h:form>
     
-            <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListAutorPremioEmpty}" rendered="#{autorPremioController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{autorPremioController.items.rowCount > 0}">
-                    <h:outputText value="#{autorPremioController.pagination.pageFirstItem + 1}..#{autorPremioController.pagination.pageLastItem + 1}/#{autorPremioController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{autorPremioController.previous}" value="#{bundle.Previous} #{autorPremioController.pagination.pageSize}" rendered="#{autorPremioController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{autorPremioController.next}" value="#{bundle.Next} #{autorPremioController.pagination.pageSize}" rendered="#{autorPremioController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{autorPremioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAutorPremioTitle_autorPremioPK_anio}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.autorPremioPK.anio}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAutorPremioTitle_autor}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.autor}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAutorPremioTitle_premio}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.premio}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            
-                        </h:column>
-                    </h:dataTable>
-                </h:panelGroup>
-                <br />
-                <h:commandLink action="#{autorPremioController.prepareCreate}" value="#{bundle.ListAutorPremioCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListAutorPremioIndexLink}"/>
-            </h:form>
+            
         </ui:define>
     </ui:composition>
 
