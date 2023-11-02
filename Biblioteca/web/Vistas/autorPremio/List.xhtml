@@ -27,61 +27,64 @@
 
 
         <h:form>
-            <p:dataTable value="#{autorController.autoresList}" var="autor" style="width: 65%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
-                <p:column headerText="Cód." sortBy="#{autor.codAutor}" width="30" style="text-align: center">
-                        <h:outputText value="#{autor.codAutor}"/>
+            <p:dataTable value="#{autorController.autoresList}" var="autorPremio" style="width: 65%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
+                <p:column headerText="Cód." sortBy="#{autorPremio.autor.codAutor}" width="30" style="text-align: center">
+                        <h:outputText value="#{autorPremio.autor.codAutor}"/>
                     </p:column>
-                    <p:column headerText="Nombre" sortBy="#{autor.nomAutor}">
-                        <h:outputText value="#{autor.nomAutor}"/>
+                    <p:column headerText="Nombre" sortBy="#{autorPremio.autor.nomAutor}">
+                        <h:outputText value="#{autorPremio.autor.nomAutor}"/>
                     </p:column>
-                    <p:column headerText="Apellido1" sortBy="#{autor.apellido1}">
-                        <h:outputText value="#{autor.apellido1}"/>
+                    <p:column headerText="Apellido1" sortBy="#{autorPremio.autor.apellido1}">
+                        <h:outputText value="#{autorPremio.autor.apellido1}"/>
                     </p:column>
-                    <p:column headerText="Apellido2" sortBy="#{autor.apellido2}">
-                        <h:outputText value="#{autor.apellido2}"/>
+                    <p:column headerText="Apellido2" sortBy="#{autorPremio.autor.apellido2}">
+                        <h:outputText value="#{autorPremio.autor.apellido2}"/>
                     </p:column>
-                    <p:column headerText="F.Nac" sortBy="#{autor.FNac}">
-                        <h:outputText value="#{autor.FNac}">
+                    <p:column headerText="F.Nac" sortBy="#{autorPremio.autor.FNac}">
+                        <h:outputText value="#{autorPremio.autor.FNac}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:outputText>
                     </p:column>
-                    <p:column headerText="F.Def" sortBy="#{autor.FDef}">
-                        <h:outputText value="#{autor.FDef}">
+                    <p:column headerText="F.Def" sortBy="#{autorPremio.autor.FDef}">
+                        <h:outputText value="#{autorPremio.autor.FDef}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:outputText>
                     </p:column>
                     <p:column headerText="Edad">
-                        <h:outputText rendered="#{autorController.estaVivo(autor)}" value="#{autorController.calcularEdad(autor.FNac)}"/>
+                        <h:outputText rendered="#{autorController.estaVivo(autorPremio.autor)}" value="#{autorController.calcularEdad(autorPremio.autor.FNac)}"/>
                     </p:column>
                     <p:column headerText="Foto" style="text-align: center" ><!-- aquí añado la foto desde la carpeta resources,
                                                                             para ello library que manda a resources y el nombre que 
                                                                             está en la base de datos.-->
                         <p:lightBox styleClass="imagebox"><!--esto lo que hace es adornar-->
-                            <h:outputLink value="/Biblioteca/faces/javax.faces.resources/#{autor.foto}?ln=Autores" 
-                                          title="#{autor.nomAutor} #{autor.apellido1} #{autor.apellido2}"><!--Agustín no sabe porqué 
+                            <h:outputLink value="/Biblioteca/faces/javax.faces.resources/#{autorPremio.autor.foto}?ln=Autores" 
+                                          title="#{autorPremio.autor.nomAutor} #{autorPremio.autor.apellido1} #{autorPremio.autor.apellido2}"><!--Agustín no sabe porqué 
                                                                                                                 esto pero se hace así
                                 para el nombre debajo de la ventana del lightBox ponemos el title-->
-                                <h:graphicImage library="Autores" name="#{autor.foto}" height="45px"/>
+                                <h:graphicImage library="Autores" name="#{autorPremio.autor.foto}" height="45px"/>
                             </h:outputLink>
                         </p:lightBox>    
                     </p:column>
                     <p:column headerText="País">
-                        <h:graphicImage library="banderas" name="#{autor.nacionalidad.bandera}" height="45px"/>
+                        <h:graphicImage library="banderas" name="#{autorPremio.autor.nacionalidad.bandera}" height="45px"/>
                     </p:column>
                     <p:column headerText="Localidad">
-                        <h:outputText value="#{autor.localidad}"/>
+                        <h:outputText value="#{autorPremio.autor.localidad}"/>
+                    </p:column>
+                <p:column headerText="Año" sortBy="#{autorPremio.autorPremioPK.anio}">
+                        <h:outputText value="#{autorPremio.autorPremioPK.anio}"/>
                     </p:column>
                     <p:column headerText="Libros" width="20%" >
                         <h:selectManyListbox disabled="true" style="width: 250px; background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">
-                            <f:selectItems value="#{autor.libroList}" var="libro" itemValue="#{libro}" itemLabel="#{libro.nomLibro}"/><!--aquí meto un objeto en cada fila, 
+                            <f:selectItems value="#{autorPremio.autor.libroList}" var="libro" itemValue="#{libro}" itemLabel="#{libro.nomLibro}"/><!--aquí meto un objeto en cada fila, 
                             un libro, pero se mostrará el título con el itemLabel-->
                         </h:selectManyListbox>
                     </p:column>
                 
             </p:dataTable>
-            <p:galleria value="#{autorController.autoresList}" var="autor" panelWidth="400" panelHeight="300"
+            <p:galleria value="#{autorController.autoresList}" var="autorPremio" panelWidth="400" panelHeight="300"
                         style="float: right; margin-right: 70px;" showCaption="true" ><!--el showCaption es para que muestre el title-->
-                <p:graphicImage library="Autores" name="#{autor.foto}" title="#{autor.nomAutor} #{autor.apellido1}" style="width: 100%"></p:graphicImage>
+                <p:graphicImage library="Autores" name="#{autorPremio.autor.foto}" title="#{autorPremio.autor.nomAutor} #{autorPremio.autor.apellido1}" style="width: 100%"></p:graphicImage>
             </p:galleria>
             <p:dock position="bottom">
                 <p:menuitem value="Listado" icon="/resources/iconos/listado.png" url="List.xhtml"/>

@@ -12,6 +12,7 @@ package Controladores;
 import Modelos.Autor;
 import Controladores.util.JsfUtil;
 import Controladores.util.PaginationHelper;
+import Modelos.AutorPremio;
 import Modelos.Premio;
 import Repositorios.AutorFacade;
 
@@ -43,7 +44,7 @@ public class AutorController implements Serializable {
     private PaginationHelper pagination;
     private int selectedItemIndex;
     private Premio premio;
-    private List<Autor> autoresList;
+    private List<AutorPremio> autoresList;
 
     public AutorController() {
     }
@@ -56,11 +57,11 @@ public class AutorController implements Serializable {
         this.premio = premio;
     }
 
-    public List<Autor> getAutoresList() {
+    public List<AutorPremio> getAutoresList() {
         return autoresList;
     }
 
-    public void setAutoresList(List<Autor> autoresList) {
+    public void setAutoresList(List<AutorPremio> autoresList) {
         this.autoresList = autoresList;
     }
 

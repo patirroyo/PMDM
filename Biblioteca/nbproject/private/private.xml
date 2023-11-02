@@ -6,19 +6,17 @@
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Controladores/LibroController.java</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/web/Vistas/autorPremio/List.xhtml</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Repositorios/AutorFacade.java</file>
-            <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Modelos/Libro.java</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Modelos/AutorPremio.java</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Repositorios/LibroFacade.java</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Modelos/Autor.java</file>
+            <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/web/Vistas/libro/PremiosLibros.xhtml</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Modelos/AutorPremioPK.java</file>
-            <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/web/Vistas/libro/List.xhtml</file>
+            <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Repositorios/AutorPremioFacade.java</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Controladores/AutorPremioController.java</file>
-            <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Repositorios/PremioFacade.java</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Controladores/PremioController.java</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Controladores/AutorController.java</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/web/Vistas/autor/List.xhtml</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/web/Vistas/libro/AutorLibros.xhtml</file>
-            <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/src/java/Modelos/Premio.java</file>
             <file>file:/Users/alberto/gitSalesianos/PMDM/Biblioteca/web/index.xhtml</file>
         </group>
     </open-files>

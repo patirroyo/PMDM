@@ -194,7 +194,7 @@ public class PremioController implements Serializable {
     
     public SelectItem[] getItemsPorAutor() {
         //return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
-        return getSelectPremio(ejbFacade.premiosAutorOrdenados(), true);
+        return getSelectPremio(ejbFacade.premiosAutorOrdenados(), false);
     }
     public SelectItem[] getItemsPorLibro() {
         //return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
