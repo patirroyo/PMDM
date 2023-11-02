@@ -8,6 +8,7 @@ import Modelos.Premio;
 import Repositorios.AutorPremioFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -32,6 +33,7 @@ public class AutorPremioController implements Serializable {
     private int selectedItemIndex;
     private Autor autor;
     private Premio premio;
+    private List listaAutor;
 
     public AutorPremioController() {
     }
@@ -50,6 +52,14 @@ public class AutorPremioController implements Serializable {
 
     public void setPremio(Premio premio) {
         this.premio = premio;
+    }
+
+    public List getListaAutor() {
+        return listaAutor;
+    }
+
+    public void setListaAutor(List listaAutor) {
+        this.listaAutor = listaAutor;
     }
     
     public AutorPremio getSelected() {

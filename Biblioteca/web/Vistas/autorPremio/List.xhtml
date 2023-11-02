@@ -15,8 +15,8 @@
         <h:form>
             <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
                 <f:facet name="left">
-                    <p:selectOneMenu id="unAutor"  >
-                        <f:selectItems value="#{autorController.itemsAvailableSelectMany}" /> <!--acabado en s, porque sera algo para una lista-->
+                    <p:selectOneMenu id="unAutor" value="#{autorPremioController.premio}" onchange="#{autorPremioController.cargarListaPremios()} submit()">
+                        <f:selectItems value="#{premioController.itemsAvailableSelectMany}" /> <!--acabado en s, porque sera algo para una lista-->
                         <!--<f:converter converterId="autorConverter"/>-->
                     </p:selectOneMenu>
                 </f:facet>
