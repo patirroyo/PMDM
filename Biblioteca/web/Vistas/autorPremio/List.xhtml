@@ -31,14 +31,8 @@
                 <p:column headerText="Cód." sortBy="#{autorPremio.autor.codAutor}" width="30" style="text-align: center">
                         <h:outputText value="#{autorPremio.autor.codAutor}"/>
                     </p:column>
-                    <p:column headerText="Nombre" sortBy="#{autorPremio.autor.nomAutor}">
-                        <h:outputText value="#{autorPremio.autor.nomAutor}"/>
-                    </p:column>
-                    <p:column headerText="Apellido1" sortBy="#{autorPremio.autor.apellido1}">
-                        <h:outputText value="#{autorPremio.autor.apellido1}"/>
-                    </p:column>
-                    <p:column headerText="Apellido2" sortBy="#{autorPremio.autor.apellido2}">
-                        <h:outputText value="#{autorPremio.autor.apellido2}"/>
+                    <p:column headerText="Nombre" sortBy="#{autorPremio.autor.apellido1}">
+                        <h:outputText value="#{autorPremio.autor.nomAutor} #{autorPremio.autor.apellido1} #{autorPremio.autor.apellido2}"/>
                     </p:column>
                     <p:column headerText="F.Nac" sortBy="#{autorPremio.autor.FNac}">
                         <h:outputText value="#{autorPremio.autor.FNac}">
