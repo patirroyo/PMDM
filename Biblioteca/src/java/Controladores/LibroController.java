@@ -4,6 +4,7 @@ import Modelos.Libro;
 import Controladores.util.JsfUtil;
 import Controladores.util.PaginationHelper;
 import Modelos.Autor;
+import Modelos.AutorPremio;
 import Modelos.Premio;
 import Repositorios.LibroFacade;
 
@@ -35,7 +36,15 @@ public class LibroController implements Serializable {
     private List<Libro> listaAutor;
     private Premio premio;
     private List<Premio> listaPremio;
+    private List<AutorPremio> premioList;
 
+    public List<AutorPremio> getPremioList() {
+        return premioList;
+    }
+
+    public void setPremioList(List<AutorPremio> premioList) {
+        this.premioList = premioList;
+    }
 
     public LibroController() {
     }
@@ -281,5 +290,8 @@ public class LibroController implements Serializable {
     public void cargarListaPremio(){
         listaPremio = ejbFacade.LibrosPorPremio(premio);
     }
-
+    public void cargarListaPremiosDelAutor(){
+       premioList = ejbFacade.premiosPorAutorOrdenados(autor);
+    
+    }
 }

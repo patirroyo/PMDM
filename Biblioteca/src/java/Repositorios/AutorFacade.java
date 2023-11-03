@@ -46,7 +46,7 @@ public class AutorFacade extends AbstractFacade<Autor> {
         if (premio != null)
             q = em.createNamedQuery("AutorPremio.findByCodPremio").setParameter("codPremio", premio.getCodPremio());
         else
-            q = em.createNamedQuery("AutorPremio.findByCodPremio").setParameter("codPremio", 3);
+            q = em.createNamedQuery("AutorPremio.findByCodPremio").setParameter("codPremio", 3);//por defecto el 3 que es el primero (premio Cervantes)
         return q.getResultList();
     }
 }

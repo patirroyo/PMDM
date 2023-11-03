@@ -45,6 +45,12 @@ public class LibroFacade extends AbstractFacade<Libro> {
         q = em.createNamedQuery("Libro.findByPremio").setParameter("elPremio", premio);
         return q.getResultList();
     }
+    public List premiosPorAutorOrdenados(Autor autor){
+        em = getEntityManager();
+        Query q;
+        q = em.createNamedQuery("AutorPremio.findByAutor").setParameter("unAutor", autor);
+        return q.getResultList();
+    }
     /*public List<Libro> LibrosOrdenados(){
         em = getEntityManager();
         Query q;
