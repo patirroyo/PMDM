@@ -42,7 +42,11 @@ public class AutorFacade extends AbstractFacade<Autor> {
     public List<AutorPremio> autoresPorPremio(Premio premio){
         em = getEntityManager();
         Query q;
-        q = em.createNamedQuery("AutorPremio.findByPremio").setParameter("unPremio", premio);
+        //q = em.createNamedQuery("AutorPremio.findByPremio").setParameter("unPremio", premio);
+        if (premio != null)
+            q = em.createNamedQuery("AutorPremio.findByCodPremio").setParameter("codPremio", premio.getCodPremio());
+        else
+            q = em.createNamedQuery("AutorPremio.findByCodPremio").setParameter("codPremio", 3);
         return q.getResultList();
     }
 }
