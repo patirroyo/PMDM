@@ -12,7 +12,7 @@
                 <p:toolbar style="margin-bottom: 10px; width: 100%; float:left">
                     <f:facet name="left">
                         <p:selectOneMenu id="unAutor" value="#{libroController.autor}" onchange="#{libroController.cargarLista()} #{libroController.cargarListaPremiosDelAutor()} submit()">
-                            <f:selectItems value="#{autorController.itemsAvailableSelectMany}" /> <!--acabado en s, porque sera algo para una lista-->
+                            <f:selectItems value="#{autorController.itemsAvailableSelectMany}" /> <!--cojo el Many para que no salga lo de seleccione uno....-->
                             <f:converter converterId="autoresConverter"/>
                         </p:selectOneMenu>
                     </f:facet>
@@ -26,8 +26,7 @@
             
             
             <h:form>
-                <p:dataTable value="#{libroController.listaAutor}" var="libro" style="width: 47%;float: left"><!--en la vista los valores que tengan serán 
-                                                                                      los mismos que los del controlador-->
+                <p:dataTable value="#{libroController.listaAutor}" var="libro" style="width: 47%;float: left">
                     <p:column headerText="Cód." sortBy="#{libro.codLibro}" width="50" style="text-align: center">
                         <h:outputText value="#{libro.codLibro}"/>
                     </p:column>
