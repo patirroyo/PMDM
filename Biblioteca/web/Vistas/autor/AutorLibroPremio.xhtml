@@ -48,13 +48,13 @@
                         </p:lightBox>    
                     </p:column>
                     <p:column headerText="Autores" width="20%" >
-                        <h:selectManyListbox disabled="true" style="background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">
+                        <h:selectManyListbox disabled="true" style="background-color: transparent; border: none; font-size: small; overflow-y: hidden" size="3">
                             <f:selectItems value="#{libro.autorList}" var="autor" itemValue="#{autor}" itemLabel="#{autor.nomAutor} #{autor.apellido1} #{autor.apellido2}"/><!--aquí meto un objeto en cada fila, 
                             un libro, pero se mostrará el título con el itemLabel-->
                         </h:selectManyListbox>
                     </p:column>
                     <p:column headerText="Premios" width="20%" >
-                        <h:selectManyListbox disabled="true" style="background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">
+                        <h:selectManyListbox disabled="true" style="background-color: transparent; border: none; font-size: small; overflow-y: hidden" size="3">
                             <f:selectItems value="#{libro.premioList}" var="premio" itemValue="#{premio}" itemLabel="#{premio.nomPremio}"/>
                         </h:selectManyListbox>
                     </p:column>
