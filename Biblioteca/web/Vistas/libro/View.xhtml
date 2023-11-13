@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">>
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -14,22 +15,10 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewLibroLabel_codLibro}"/>
-                    <h:outputText value="#{libroController.selected.codLibro}" title="#{bundle.ViewLibroTitle_codLibro}"/>
-                    <h:outputText value="#{bundle.ViewLibroLabel_nomLibro}"/>
-                    <h:outputText value="#{libroController.selected.nomLibro}" title="#{bundle.ViewLibroTitle_nomLibro}"/>
-                    <h:outputText value="#{bundle.ViewLibroLabel_ano}"/>
-                    <h:outputText value="#{libroController.selected.ano}" title="#{bundle.ViewLibroTitle_ano}"/>
-                    <h:outputText value="#{bundle.ViewLibroLabel_portada}"/>
-                    <h:outputText value="#{libroController.selected.portada}" title="#{bundle.ViewLibroTitle_portada}"/>
-                    <h:outputText value="#{bundle.ViewLibroLabel_nomArchivo}"/>
-                    <h:outputText value="#{libroController.selected.nomArchivo}" title="#{bundle.ViewLibroTitle_nomArchivo}"/>
-                    <h:outputText value="#{bundle.ViewLibroLabel_pelicula}"/>
-                    <h:outputText value="#{libroController.selected.pelicula}" title="#{bundle.ViewLibroTitle_pelicula}"/>
-                    <h:outputText value="#{bundle.ViewLibroLabel_comentario}"/>
-                    <h:outputText value="#{libroController.selected.comentario}" title="#{bundle.ViewLibroTitle_comentario}"/>
-                </h:panelGrid>
+                
+                <embed src="/Biblioteca/faces/javax.faces.resources/#{libroController.selected.nomArchivo}?ln=pdfs#toolbar=0" type="application/pdf" width="100%" height="800px" />
+                    
+                
                 <br />
                 <h:commandLink action="#{libroController.destroyAndView}" value="#{bundle.ViewLibroDestroyLink}"/>
                 <br />
