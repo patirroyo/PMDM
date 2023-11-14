@@ -15,10 +15,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                
                 <embed src="/Biblioteca/faces/javax.faces.resources/#{libroController.selected.nomArchivo}?ln=pdfs#toolbar=0" type="application/pdf" width="100%" height="800px" />
-                    
-                
                 <br />
                 <h:commandLink action="#{libroController.destroyAndView}" value="#{bundle.ViewLibroDestroyLink}"/>
                 <br />

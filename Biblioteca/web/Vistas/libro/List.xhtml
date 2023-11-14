@@ -34,6 +34,23 @@
                             </h:outputLink>
                         </p:lightBox>    
                     </p:column>
+                    <p:column headerText="Trailer" style="text-align: center" >
+                        <p:lightBox styleClass="imagebox"><!--esto lo que hace es adornar-->
+                            <h:outputLink value="/Biblioteca/faces/javax.faces.resources/#{libro.pelicula}?ln=videos" 
+                                          title="#{libro.nomLibro} #{libro.ano}">
+                                <div class="card">
+                                    <h5>WEBM</h5>
+                                    <p:media value="/Biblioteca/faces/javax.faces.resources/#{libro.pelicula}?ln=videos"
+                                             width="420"
+                                             height="250"
+                                             >
+                                        Your browser does not support the video element.
+                                        See: <h:outputLink value="/Biblioteca/faces/javax.faces.resources/#{libro.pelicula}?ln=videos">HTML5 Video</h:outputLink>
+                                    </p:media>
+                                </div>
+                            </h:outputLink>
+                        </p:lightBox>    
+                    </p:column>
                     <p:column headerText="Autores" width="20%" >
                         <h:selectManyListbox disabled="true" style="background-color: transparent; border: none; font-size: small; overflow-y: scroll" size="3">
                             <f:selectItems value="#{libro.autorList}" var="autor" itemValue="#{autor}" itemLabel="#{autor.nomAutor} #{autor.apellido1} #{autor.apellido2}"/><!--aquí meto un objeto en cada fila, 
