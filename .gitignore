@@ -1,2 +1,5 @@
 #Los pdfs ilegales
 Biblioteca/web/resources/pdfs/*.pdf
+
+#los videos ilegales
+Biblioteca/web/resources/videos/*.mp4
