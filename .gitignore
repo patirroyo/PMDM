@@ -5,4 +5,4 @@ Biblioteca/web/resources/pdfs/*.pdf
 Biblioteca/web/resources/videos/*.mp4
 
 #los datos de la base de datos de misiones
-misionestablas.sql
+misionestablas/*
