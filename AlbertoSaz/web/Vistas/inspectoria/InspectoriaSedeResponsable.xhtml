@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <h:form>
+                <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
+                    <f:facet name="left">
+                        <p>Elige una Inspectoria</p>
+                        <p:selectOneMenu id="unaInspectoria" value="#{inspectoriaController.current}" onchange="#{inspectoriaController.cargarListaSedes()} submit()">
+                            <f:selectItems value="#{inspectoriaController.itemsAvailableSelectOne}" />
+                            <f:converter converterId="inspectoriaConverter" />
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:toolbar>
+                <br>
+                </br>
+                <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
+                    <f:facet name="left">
+                        <p>Elige una Sede</p>
+                        <p:selectOneMenu id="unaSede" value="#{sedeController.current}" onchange="#{sedeController.cargarListaSedesResponsable()} submit()">
+                            <f:selectItems value="#{inspectoriaController.sedesAvailableSelectOne}" />
+                            <f:converter converterId="sedeConverter" />
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+            
+            <h:form>
+                <p:panel header="Datos de la tabla intermedia con atributos propios de la relacion" style="width: 70%; float: left; margin-bottom: 10px;">
+                    <p:dataTable value="#{sedeController.listasedSederesponsable}" var="sedeResponsable" style="width: 70%;float: left">
+                        <p:column headerText="Cod. responsable" sortBy="#{sedeResponsable.sederesponsablePK.codResponsable}" width="50" style="text-align: center">
+                            <h:outputText value="#{sedeResponsable.sederesponsablePK.codResponsable}"/>
+                        </p:column>
+                        <p:column headerText="Cod. sede" sortBy="#{sedeResponsable.sederesponsablePK.codSede}" width="50" style="text-align: center">
+                            <h:outputText value="#{sedeResponsable.sederesponsablePK.codSede}"/>
+                        </p:column>
+                        <p:column headerText="Fecha" sortBy="#{sedeResponsable.sederesponsablePK.fechaInicio}" width="50" style="text-align: center">
+                            <h:outputText value="#{sedeResponsable.sederesponsablePK.fechaInicio}"/>
+                        </p:column>
+                        <p:column headerText="Nom. Responsable" sortBy="#{sedeResponsable.responsable.nomResponsable}" width="50" style="text-align: center">
+                            <h:outputText value="#{sedeResponsable.responsable.nomResponsable}"/>
+                        </p:column>
+                        <p:column headerText="Nom. Responsable" sortBy="#{sedeResponsable.responsable.tipoMisionero}" width="50" style="text-align: center">
+                            <h:outputText value="#{sedeResponsable.responsable.tipoMisionero}"/>
+                        </p:column>
+                        <p:column headerText="Tratamiento" sortBy="#{sedeResponsable.responsable.tratamiento}" width="50" style="text-align: center">
+                            <h:outputText value="#{sedeResponsable.responsable.tratamiento}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

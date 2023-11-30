@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Envios de un Proyecto"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form>
+                <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
+                    <f:facet name="left">
+                        <p>Selecciona un proyecto: </p>
+                        <p:selectOneMenu id="unProyecto" value="#{proyectoController.proyecto}" onchange="#{proyectoController.cargarListaDeEnvioDeUnProyecto()} submit()">
+                            <f:selectItems value="#{proyectoController.itemsAvailableSelectOne}" />
+                            <f:converter converterId="proyectoConverter" />
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+            <!-- AR/168/19/RM 
+            BO/001/20/AM - Tiene más de un envío, para probar la suma
+            -->
+            
+            <h:form>
+                <p:dataTable value="#{proyectoController.listaEnvio}" var="envio" style="width: 70%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
+                    <p:column headerText="Cód." sortBy="#{envio.envioPK.codigo}" width="50" style="text-align: center">
+                        <h:outputText value="#{envio.envioPK.codigo}"/>
+                    </p:column>
+                    <p:column headerText="Fecha" sortBy="#{envio.envioPK.fecha}" width="50" style="text-align: center">
+                        <h:outputText value="#{envio.envioPK.fecha}"/>
+                    </p:column>
+                    <p:column headerText="Fecha" sortBy="#{envio.envioPK.fecha}" width="50" style="text-align: center">
+                        <h:outputText value="#{envio.envioPK.fecha}"/>
+                    </p:column>
+                </p:dataTable>
+           
+                <p:dataTable value="#{proyectoController.proyecto}" var="proyecto" style="width: 70%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
+                    <p:column headerText="Dinero concedido" width="50" style="text-align: center">
+                        <h:outputText value="#{proyecto.dineroConcedido}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:dataTable value="#{proyectoController.suma}" var="suma" style="width: 70%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
+                    <p:column headerText="Total Envios" width="50" style="text-align: center">
+                        <h:outputText value="#{suma}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:dataTable value="#{proyectoController.mensaje}" var="mensaje" style="width: 70%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
+                    <p:column headerText="Dinero restante de enviar" width="50" style="text-align: center">
+                        <h:outputText value="#{mensaje}"/>
+                    </p:column>
+                </p:dataTable>
+                
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

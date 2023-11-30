@@ -13,3 +13,5 @@ from Proyectos p;
 
 select e.codigo
 from Entidades e;
+
+select * from Envios where codigo = '50/072/16';

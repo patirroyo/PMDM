@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Proyecto Completo"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+                
+            <h:form>
+                <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
+                    <f:facet name="left">
+                        <p>Selecciona un proyecto: </p>
+                        <p:selectOneMenu id="unProyectoCompleto" value="#{proyectoController.proyectoCompleto}" onchange="#{proyectoController.cargarListaProyectoCompleto()} submit()">
+                            <f:selectItems value="#{proyectoController.itemsAvailableSelectMany}" />
+                            <f:converter converterId="proyectoConverter" />
+                        </p:selectOneMenu>
+                        <p:column style="width: 100px">
+                            <h:commandLink action="#{proyectoController.prepareView()}" value="Ver"/>
+                            <h:outputText value="  "/>
+                            <h:commandLink action="#{proyectoController.prepareEdit()}" value="Editar"/>
+                            <h:outputText value="  "/>
+                            <h:commandLink action="#{proyectoController.destroyAndView()}" value="Borrar"/>
+                            <h:outputText value="  "/>
+                        </p:column>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+            <!--PARA PROBAR CON UN PROYECTO QUE TIENE TODO/CASI TODOS LOS CAMPOS: CM/597/20/AG-->
+            <h:form>
+                <p:panel header="Inspectoria del Proyecto" style="width: 70%; float: left; margin-bottom: 10px;">
+                    <p:dataTable value="#{proyectoController.inspectoriaProyectoCompleto}" var="inspectoria" style="width: 70%;float: left">
+                        <p:column headerText="Cód."  width="50" style="text-align: center">
+                            <h:outputText value="#{inspectoria.codigo}"/>
+                        </p:column>
+                        <p:column headerText="Socio Local"  width="50" style="text-align: center">
+                            <h:outputText value="#{inspectoria.socioLocal}"/>
+                        </p:column>
+                        <p:column headerText="Codigo Inspectoria"  width="50" style="text-align: center">
+                            <h:outputText value="#{inspectoria.codInspectoria}"/>
+                        </p:column>
+                        <p:column headerText="Nombre Inspectoria"  width="50" style="text-align: center">
+                            <h:outputText value="#{inspectoria.nomInspectoria}"/>
+                        </p:column>
+                         
+                    </p:dataTable>
+                </p:panel>
+                
+                <p:panel header="Sedes del Proyecto" style="width: 70%; float: left; margin-bottom: 10px;">
+                    <p:dataTable value="#{proyectoController.sedeProyectoCompleto}" var="sede" style="width: 70%;float: left">
+                        <p:column headerText="Cod. sede" width="50" style="text-align: center">
+                            <h:outputText value="#{sede.codSede}"/>
+                        </p:column>
+                        <p:column headerText="Nombre Sede"  width="50" style="text-align: center">
+                            <h:outputText value="#{sede.nomSede}"/>
+                        </p:column>
+                        <p:column headerText="Direccion"  width="50" style="text-align: center">
+                            <h:outputText value="#{sede.direccion}"/>
+                        </p:column>
+                        <p:column headerText="Ciudad"  width="50" style="text-align: center">
+                            <h:outputText value="#{sede.ciudad}"/>
+                        </p:column>
+                        <p:column headerText="Telefono"  width="50" style="text-align: center">
+                            <h:outputText value="#{sede.telefono}"/>
+                        </p:column>
+                        <p:column headerText="Pais"  width="50" style="text-align: center">
+                            <h:outputText value="#{sede.pais}"/>
+                        </p:column>
+                        <p:column headerText="Socio Local"  width="50" style="text-align: center">
+                            <h:outputText value="#{sede.socioLocal}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+                
+                <p:panel header="Envios del Proyecto" style="width: 70%; float: left; margin-bottom: 10px;">
+                    <p:dataTable value="#{proyectoController.listaDeEnvioProyectoCompleto}" var="envio" style="width: 70%;float: left">
+                        <p:column headerText="Cod. sede" sortBy="#{envio.cantidad}" width="50" style="text-align: center">
+                            <h:outputText value="#{envio.cantidad}"/>
+                        </p:column>
+                        <p:column headerText="Cód." sortBy="#{envio.envioPK.codigo}" width="50" style="text-align: center">
+                            <h:outputText value="#{envio.envioPK.codigo}"/>
+                        </p:column>
+                        <p:column headerText="Fecha" sortBy="#{envio.envioPK.fecha}" width="50" style="text-align: center">
+                            <h:outputText value="#{envio.envioPK.fecha}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+                
+                <p:panel header="Crs Del proyecto" style="width: 70%; float: left; margin-bottom: 10px;">
+                    <p:dataTable value="#{proyectoController.listaCrsProyectoCompleto}" var="crs" style="width: 70%;float: left">
+                        <p:column headerText="Codigo Crs" sortBy="#{crs.codCrs}" width="50" style="text-align: center">
+                            <h:outputText value="#{crs.codCrs}"/>
+                        </p:column>
+                        <p:column headerText="Nombre Crs" sortBy="#{crs.nomCrs}" width="50" style="text-align: center">
+                            <h:outputText value="#{crs.nomCrs}"/>
+                        </p:column>
+                        <p:column headerText="Informacion Crs" sortBy="#{crs.informacionesESP}" width="50" style="text-align: center">
+                            <h:outputText value="#{crs.informacionesESP}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+                
+                <p:panel header="Entidad Del proyecto" style="width: 70%; float: left; margin-bottom: 10px;">
+                    <p:dataTable value="#{proyectoController.entidadProyectoCompleto}" var="entidad" style="width: 70%;float: left">
+                        <p:column headerText="Codigo Entidad" sortBy="#{entidad.codigo}" width="50" style="text-align: center">
+                            <h:outputText value="#{entidad.codigo}"/>
+                        </p:column>
+                        <p:column headerText="Tipo Entidad" sortBy="#{entidad.tipoEntidad}" width="50" style="text-align: center">
+                            <h:outputText value="#{entidad.tipoEntidad}"/>
+                        </p:column>
+                        <p:column headerText="Nombre Entidad" sortBy="#{entidad.nomEntidad}" width="50" style="text-align: center">
+                            <h:outputText value="#{entidad.nomEntidad}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+                
+                
+                <p:panel header="Tipo de Entidad Del proyecto" style="width: 70%; float: left; margin-bottom: 10px;">
+                    <p:dataTable value="#{proyectoController.tipoEntidadProyectoCompleto}" var="tipoentidad" style="width: 70%;float: left">
+                        <p:column headerText="Codigo tipo de entidad" sortBy="#{tipoentidad.codTipo}" width="50" style="text-align: center">
+                            <h:outputText value="#{tipoentidad.codTipo}"/>
+                        </p:column>
+                        <p:column headerText="Codigo tipo de entidad" sortBy="#{tipoentidad.nomTipo}" width="50" style="text-align: center">
+                            <h:outputText value="#{tipoentidad.nomTipo}"/>
+                        </p:column>
+                        <p:column headerText="Codigo tipo de entidad" sortBy="#{tipoentidad.tipoOrganismo}" width="50" style="text-align: center">
+                            <h:outputText value="#{tipoentidad.tipoOrganismo}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+                
+                <p:panel header="Tecnico de Formación del Proyecto" style="width: 70%; float: left; margin-bottom: 10px;">
+                    <p:dataTable value="#{proyectoController.tecFor}" var="tecnico" style="width: 70%;float: left">
+                        <p:column headerText="Codigo tec" width="50" style="text-align: center">
+                            <h:outputText value="#{tecnico.codTecnico}"/>
+                        </p:column>
+                        <p:column headerText="Nombre del técnico" width="50" style="text-align: center">
+                            <h:outputText value="#{tecnico.nomTecnico}"/>
+                        </p:column>
+                   </p:dataTable>
+                </p:panel>
+                <p:panel header="Tecnico de Seguimiento del  Proyecto" style="width: 70%; float: left; margin-bottom: 10px;">
+                    <p:dataTable value="#{proyectoController.tecSeg}" var="tecnico" style="width: 70%;float: left">
+                        <p:column headerText="Codigo tec" width="50" style="text-align: center">
+                            <h:outputText value="#{tecnico.codTecnico}"/>
+                        </p:column>
+                        <p:column headerText="Nombre del técnico" width="50" style="text-align: center">
+                            <h:outputText value="#{tecnico.nomTecnico}"/>
+                        </p:column>
+                   </p:dataTable>
+                </p:panel>
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
