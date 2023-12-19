@@ -15,98 +15,12 @@
                 <h5 class="mt-0" style=" font-size:20px; text-align: center">Salesianos Menú</h5>
                 <center>
                 <p:tieredMenu>
-                    <p:submenu label="Cad" icon="pi pi-apple">  
-                        <p:menuitem outcome="/Vistas/cad/List" value="Listado de CAD" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/cad/Create" value="Crear CAD" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/cad/Edit" value="Editar CAD" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/cad/View" value="Ver CAD" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="Cadsub" icon="pi pi-apple">  
-                        <p:menuitem outcome="/Vistas/cadsub/List" value="Listado de CADSub" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/cadsub/Create" value="Crear CADSub" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/cadsub/Edit" value="Editar CADSub" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/cadsub/View" value="Ver CADSub" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="Crs" icon="pi pi-apple">
-                        <p:menuitem outcome="/Vistas/crs/List" value="Listado de CRS" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/crs/Create" value="Crear CRS" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/crs/Edit" value="Editar CRS" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/crs/View" value="Ver CRS" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="Entidad" icon="pi pi-apple">
-                        <p:menuitem outcome="/Vistas/entidad/List" value="Listado de Entidades" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/entidad/Create" value="Crear Entidades" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/entidad/Edit" value="Editar Entidades" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/entidad/View" value="Ver Entidades" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="TipoEntidad" icon="pi pi-apple">
-                        <p:menuitem  outcome="/Vistas/tipoentidad/List" value="Listado de Tipos de Entidades" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/tipoentidad/Create" value="Crear Tipos de Entidades" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/tipoentidad/Edit" value="Editar Tipos de Entidades" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/tipoentidad/View" value="Ver Tipos de Entidades" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="Envio" icon="pi pi-apple">
-                        <p:menuitem outcome="/Vistas/envio/List" value="Listado de Envios" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/envio/Create" value="Crear Envios" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/envio/Edit" value="Editar Envios" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/envio/View" value="Vere Envios" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
+                    
                     <p:submenu label="Inspectoria" icon="pi pi-apple">
-                        <p:menuitem outcome="/Vistas/inspectoria/List" value="Listado de Inspectorias" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/inspectoria/Create" value="Crear Inspectorias" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/inspectoria/Edit" value="Editar Inspectorias" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem outcome="/Vistas/inspectoria/View" value="Ver Inspectorias" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/inspectoria/InspectoriaSedeResponsable" value="Inspectoria Sedes Responsables" icon="pi pi-fw pi-bookmark"/>
+                        <p:menuitem  outcome="/Vistas/sederesponsable/Create" value="Inspectoria Sedes Responsables" icon="pi pi-fw pi-bookmark"/>
                     </p:submenu>
-                    <p:submenu label="Ods Principal" icon="pi pi-apple">
-                        <p:menuitem  outcome="/Vistas/odsprincipal/List" value="Listado de Odsprincipal" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/odsprincipal/Create" value="Crear Odsprincipal" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/odsprincipal/Edit" value="Editar Odsprincipal" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/odsprincipal/View" value="Ver Odsprincipal" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="Proyecto" icon="pi pi-apple">
-                        <p:menuitem  outcome="/Vistas/proyecto/List" value="Listado de Proyectos" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/proyecto/Create" value="Crear Proyectos" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/proyecto/Edit" value="Editar Proyectos" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/proyecto/View" value="Ver Proyectos" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/proyecto/ProyectoEnvio" value="Envíos por Proyecto" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/proyecto/ProyectoCompleto" value="Info Proyecto Completo" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="Responsable" icon="pi pi-apple">
-                        <p:menuitem  outcome="/Vistas/responsable/List" value="Listado de Responsables" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/responsable/Create" value="Crear Responsables" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/responsable/Edit" value="Editar Responsables" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/responsable/View" value="Ver Responsables" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="Sector" icon="pi pi-apple">
-                        <p:menuitem  outcome="/Vistas/sector/List" value="Listado de Sectores" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/sector/Create" value="Crear Sectores" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/sector/Edit" value="Editar Sectores" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/sector/View" value="Ver Sectores" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="SubSector" icon="pi pi-apple">
-                        <p:menuitem  outcome="/Vistas/subsector/List" value="Listado de SubSectores" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/subsector/Create" value="Crear SubSectores" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/subsector/Edit" value="Editar SubSectores" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/subsector/View" value="Ver SubSectores" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="Sede" icon="pi pi-apple">
-                        <p:menuitem  outcome="/Vistas/sede/List" value="Listado de Sedes" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/sede/Create" value="Crear Sedes" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/sede/Edit" value="Editar Sedes" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/sede/View" value="Ver Sedes" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="SedeResponsable" icon="pi pi-apple">
-                        <p:menuitem  outcome="/Vistas/sederesponsable/List" value="Listado de Sedes" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/sederesponsable/Create" value="Crear Sedes" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/sederesponsable/Edit" value="Editar Sedes" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/sederesponsable/View" value="Ver Sedes" icon="pi pi-fw pi-bookmark"/>
-                    </p:submenu>
-                    <p:submenu label="Tecnico" icon="pi pi-apple">
-                        <p:menuitem  outcome="/Vistas/tecnico/List" value="Listado de Tecnicos" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/tecnico/Create" value="Crear Tecnicos" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/tecnico/Edit" value="Editar Tecnicos" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem  outcome="/Vistas/tecnico/View" value="View Tecnicos" icon="pi pi-fw pi-bookmark"/>
+                    <p:submenu label="Envios" icon="pi pi-apple">
+                        <p:menuitem  outcome="/Vistas/envio/Create" value="Envíos por Proyecto" icon="pi pi-fw pi-bookmark"/>
                     </p:submenu>
                 </p:tieredMenu>
                 </center>

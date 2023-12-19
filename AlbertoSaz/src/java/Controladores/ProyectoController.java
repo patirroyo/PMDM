@@ -341,8 +341,15 @@ public class ProyectoController implements Serializable {
 
     public SelectItem[] getItemsAvailableSelectOne() {
         return getSelectProyecto(ejbFacade.proyectosOrdenados(), false);
+        
     }
-
+    
+    public SelectItem[] getProyectoSelectedSelectOne() {
+        if(proyecto == null)
+            return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
+        else
+            return getSelectProyecto(proyecto);
+    }
     public Proyecto getProyecto(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
@@ -414,7 +421,7 @@ public class ProyectoController implements Serializable {
             if(proyecto.getDineroConcedido() != null)//Si no se le ha concedido dinero no se saca la diferencia y sera 0
                 mensaje = calcularCositas();
             else
-                mensaje = "No se ha concedido pasta a este proyecto";
+                mensaje = "No se ha concedido dinero a este proyecto";
         }
     }
     
@@ -431,7 +438,7 @@ public class ProyectoController implements Serializable {
             return diferencia.toString();
         }
         else{
-            return "Has gastado más de lo concedido";
+            return "ERROR";
         }
     }
     
@@ -455,6 +462,14 @@ public class ProyectoController implements Serializable {
         tipoEntidadProyectoCompleto = ejbFacade.tipoEntidadProyectoCompleto(proyectoCompleto);
         tecFor = ejbFacade.tecnicoDeProyectoFormacionCompleto(proyectoCompleto);
         tecSeg = ejbFacade.tecnicoDeProyectoSeguimientoCompleto(proyectoCompleto); 
+    }
+    public static SelectItem[] getSelectProyecto(Proyecto entity) {
+        SelectItem[] items = new SelectItem[1];
+        int i = 0;
+
+        items[i] = new SelectItem(entity, entity.getCodigo());
+        
+        return items;
     }
     
         

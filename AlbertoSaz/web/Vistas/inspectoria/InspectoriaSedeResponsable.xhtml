@@ -46,7 +46,7 @@
                         <p:column headerText="Nom. Responsable" sortBy="#{sedeResponsable.responsable.nomResponsable}" width="50" style="text-align: center">
                             <h:outputText value="#{sedeResponsable.responsable.nomResponsable}"/>
                         </p:column>
-                        <p:column headerText="Nom. Responsable" sortBy="#{sedeResponsable.responsable.tipoMisionero}" width="50" style="text-align: center">
+                        <p:column headerText="Tipo misionero" sortBy="#{sedeResponsable.responsable.tipoMisionero}" width="50" style="text-align: center">
                             <h:outputText value="#{sedeResponsable.responsable.tipoMisionero}"/>
                         </p:column>
                         <p:column headerText="Tratamiento" sortBy="#{sedeResponsable.responsable.tratamiento}" width="50" style="text-align: center">
@@ -54,7 +54,44 @@
                         </p:column>
                     </p:dataTable>
                 </p:panel>
+                
+                <Table>
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+                    <h:form>
+                        <h:panelGrid columns="4">
+                            <h:outputLabel value="#{bundle.CreateSederesponsableLabel_sederesponsablePK_fechaInicio}" for="sederesponsablePK_fechaInicio" />
+                            <h:inputText id="sederesponsablePK_fechaInicio" value="#{sederesponsableController.selected.sederesponsablePK.fechaInicio}" title="#{bundle.CreateSederesponsableTitle_sederesponsablePK_fechaInicio}" required="true" requiredMessage="#{bundle.CreateSederesponsableRequiredMessage_sederesponsablePK_fechaInicio}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:inputText>
+                            <h:outputLabel value="#{bundle.CreateSederesponsableLabel_fechaFin}" for="fechaFin" />
+                            <h:inputText id="fechaFin" value="#{sederesponsableController.selected.fechaFin}" title="#{bundle.CreateSederesponsableTitle_fechaFin}" >
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:inputText>
+                            <h:outputLabel value="#{bundle.CreateSederesponsableLabel_email}" for="email" />
+                            <h:inputText id="email" value="#{sederesponsableController.selected.email}" title="#{bundle.CreateSederesponsableTitle_email}" />
+                            <h:outputLabel value="#{bundle.CreateSederesponsableLabel_telefono}" for="telefono" />
+                            <h:inputText id="telefono" value="#{sederesponsableController.selected.telefono}" title="#{bundle.CreateSederesponsableTitle_telefono}" />
+                            <h:outputLabel value="#{bundle.CreateSederesponsableLabel_responsable}" for="responsable" />
+                            <h:selectOneMenu id="responsable" value="#{sederesponsableController.selected.responsable}" title="#{bundle.CreateSederesponsableTitle_responsable}" required="true" requiredMessage="#{bundle.CreateSederesponsableRequiredMessage_responsable}">
+                                <f:selectItems value="#{responsableController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="#{bundle.CreateSederesponsableLabel_sede}" for="sede" />
+                            <h:inputText id="sede" value="#{sedeController.selected.nomSede}" title="#{bundle.CreateSederesponsableTitle_telefono}" disabled="true" />
+                        </h:panelGrid>
+                        <br />
+                        <h:commandLink action="#{sederesponsableController.create}" value="#{bundle.CreateSederesponsableSaveLink}" />
+                        <br />
+                        <br />
+                        <h:commandLink action="#{sederesponsableController.prepareList}" value="#{bundle.CreateSederesponsableShowAllLink}" immediate="true"/>
+                        <br />
+                        <br />
+                        <h:link outcome="/index" value="#{bundle.CreateSederesponsableIndexLink}"/>
+                    </h:form>
+                </Table>
             </h:form>
+            
         </ui:define>
     </ui:composition>
 

@@ -12,7 +12,7 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <p:toolbar style="margin-bottom: 10px; width: 69%; float:left">
+                <p:toolbar style="margin-bottom: 10px; width: 47%; float:left">
                     <f:facet name="left">
                         <p>Selecciona un proyecto: </p>
                         <p:selectOneMenu id="unProyecto" value="#{proyectoController.proyecto}" onchange="#{proyectoController.cargarListaDeEnvioDeUnProyecto()} submit()">
@@ -25,25 +25,26 @@
             <!-- AR/168/19/RM 
             BO/001/20/AM - Tiene más de un envío, para probar la suma
             -->
+            <p:dataTable value="#{proyectoController.proyecto}" var="proyecto" style="width: 47%;float: right"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
+                <p:column headerText="Dinero concedido" width="50" style="text-align: center">
+                    <h:outputText value="#{proyecto.dineroConcedido}"/>
+                </p:column>
+            </p:dataTable>
             
             <h:form>
-                <p:dataTable value="#{proyectoController.listaEnvio}" var="envio" style="width: 70%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
-                    <p:column headerText="Cód." sortBy="#{envio.envioPK.codigo}" width="50" style="text-align: center">
+                <p:dataTable value="#{proyectoController.listaEnvio}" var="envio" style="width: 70%;float: left" sortBy="#{envio.envioPK.fecha}"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
+                    <p:column headerText="Cód.Envío" sortBy="#{envio.envioPK.fecha}" width="50" style="text-align: center">
                         <h:outputText value="#{envio.envioPK.codigo}"/>
                     </p:column>
                     <p:column headerText="Fecha" sortBy="#{envio.envioPK.fecha}" width="50" style="text-align: center">
                         <h:outputText value="#{envio.envioPK.fecha}"/>
                     </p:column>
-                    <p:column headerText="Fecha" sortBy="#{envio.envioPK.fecha}" width="50" style="text-align: center">
-                        <h:outputText value="#{envio.envioPK.fecha}"/>
+                    <p:column headerText="Cantidad" sortBy="#{envio.cantidad}" width="50" style="text-align: center">
+                        <h:outputText value="#{envio.cantidad}"/>
                     </p:column>
                 </p:dataTable>
            
-                <p:dataTable value="#{proyectoController.proyecto}" var="proyecto" style="width: 70%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
-                    <p:column headerText="Dinero concedido" width="50" style="text-align: center">
-                        <h:outputText value="#{proyecto.dineroConcedido}"/>
-                    </p:column>
-                </p:dataTable>
+                
                 <p:dataTable value="#{proyectoController.suma}" var="suma" style="width: 70%;float: left"><!--en la vista los valores que tengan serán los mismos que los del controlador-->
                     <p:column headerText="Total Envios" width="50" style="text-align: center">
                         <h:outputText value="#{suma}"/>

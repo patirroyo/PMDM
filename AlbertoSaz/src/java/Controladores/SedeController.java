@@ -207,6 +207,13 @@ public class SedeController implements Serializable {
 //        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
         return getSelectSede(ejbFacade.findAll(), true);
     }
+    
+    public SelectItem[] getSedeSelectedSelectOne() {
+        if(current == null)
+            return getSelectSede(ejbFacade.findAll(), true);
+        else
+            return getSelectSede(current);
+    }
 
     public Sede getSede(java.lang.String id) {
         return ejbFacade.find(id);
@@ -259,6 +266,14 @@ public class SedeController implements Serializable {
         for (Sede x : entities) {
             items[i++] = new SelectItem(x, x.getNomSede());
         }
+        return items;
+    }
+    public static SelectItem[] getSelectSede(Sede entity) {
+        SelectItem[] items = new SelectItem[1];
+        int i = 0;
+
+        items[i] = new SelectItem(entity, entity.getNomSede());
+        
         return items;
     }
     public void cargarListaSedesResponsable(){

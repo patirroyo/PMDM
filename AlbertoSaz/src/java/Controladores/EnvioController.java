@@ -191,6 +191,8 @@ public class EnvioController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
+    
+ 
 
     public Envio getEnvio(Modelos.EnvioPK id) {
         return ejbFacade.find(id);
@@ -243,5 +245,5 @@ public class EnvioController implements Serializable {
         }
 
     }
-
+    
 }
