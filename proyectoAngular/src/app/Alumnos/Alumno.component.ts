@@ -4,13 +4,14 @@ import { Component } from '@angular/core';
     selector: 'el-alumno',
     standalone: true,
     // imports: [],
-    templateUrl: './Alumno.component.html', //app/Alumnos/Alumno.component.html
-// styleUrl: './app.component.css'
+    templateUrl: './alumno.component.html', //app/Alumnos/Alumno.component.html
+    styleUrl: './alumno.component.css'
 })
 
 export class AlumnoComponent {
-    nombre: string = 'Juan';
-    apellidos: string = 'Perez';
-    direccion: string = 'Calle de la piruleta';
-    edad: number = 20;
+    columnas: number = 2;
+    nombre: string = 'Perico';
+    apellidos: string = 'Delagado';
+    direccion: string = 'Debajo del acueducto';
+    edad: number = 60;
 }

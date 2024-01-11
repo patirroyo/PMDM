@@ -1,17 +1,26 @@
 <table>
-    <tr>
-        <td>Nombre</td>
-        <td>{{nombre}}</td>
-    </tr>
-    <tr>
-        <td>Apellidos</td>
-        <td>{{apellidos}}</td>
-    </tr>
-    <tr>
-        <td>Direccion</td>
-        <td>{{direccion}}</td>
-    </tr>
-    <tr>
-        <td>Edad</td>
-        <td>{{edad}}</td>
+    <thead>
+        <tr>
+            <th attr.colspan={{columnas}}>Ciclista</th><!--otra forma de indireccionamiento más
+            <th [attr.colspan]="columnas">Ciclista</th>otra forma de indireccionamiento más-->
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Nombre</td>
+            <td>{{nombre}}</td>
+        </tr>
+        <tr>
+            <td>Apellidos</td>
+            <td>{{apellidos}}</td>
+        </tr>
+        <tr>
+            <td>Direccion</td>
+            <td>{{direccion}}</td>
+        </tr>
+        <tr>
+            <td>Edad</td>
+            <td>{{edad}}</td>
+        </tr>
+    </tbody>
 </table>

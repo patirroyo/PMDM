@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { AlumnoComponent } from "./Alumnos/Alumno.component";
+import { AlumnoComponent } from "./Alumnos/alumno.component";
 
 @Component({
     selector: 'app-root',
@@ -9,13 +9,27 @@ import { AlumnoComponent } from "./Alumnos/Alumno.component";
     imports: [CommonModule, RouterOutlet, AlumnoComponent],
     template: `
             <div>
-              <h1>{{encabezado}}</h1>
+              <h1>{{(encabezado == '')?getNombreCompleto():(5+5)}}</h1>
+              <img src='https://cordoba.salesianos.edu/wp-content/uploads/2021/05/{{imagen}}'><!--las {{}} son para que se interprete como codigo y sirve para los strings-->
               <el-alumno></el-alumno>
+              <button [disabled]="desactivado">Boton</button><!-- el [disabled] es para que se desactive el boton se hace con corchetes porque las {{}} son solo para strings-->
             </div>  `,
     styleUrl: './app.component.css'
     
 })
 export class AppComponent {
   title: string = 'proyectoAngular de la clase 2ºH';
-  encabezado: string = 'Datos del alumno';
+  encabezado: string = '5';
+  imagen: string = 'logo_salesianos.png';
+
+
+  desactivado: boolean = false;
+
+  nombre : string = 'Perico';
+  apellido: string = 'Delgado';
+
+  getNombreCompleto(): string {
+    return this.nombre + ' ' + this.apellido;
+  }
+
 }
