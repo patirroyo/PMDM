@@ -14,4 +14,11 @@ export class AlumnoComponent {
     apellidos: string = 'Delagado';
     direccion: string = 'Debajo del acueducto';
     edad: number = 60;
+//--------segunda parte--------//
+    visibles: boolean = false;
+    
+    alternarVisibilidad() {
+    this.visibles = !this.visibles;
 }
+}
+
