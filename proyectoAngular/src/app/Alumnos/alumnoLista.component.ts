@@ -10,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
     styleUrl: './alumno.component.css'
 })
 
-export class alumnoListaComponent {
+export class AlumnoListaComponent {
     alumnos: any[] = [
         {nombre: 'Perico', apellidos: 'Delgado', direccion: 'Debajo del acueducto', edad: 60},
         {nombre: 'Miguel', apellidos: 'Indurain', direccion: 'Pamplona', edad: 20},

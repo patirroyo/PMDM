@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AlumnoComponent } from './Alumnos/alumno.component';
+import { AlumnoListaComponent } from './Alumnos/alumnoLista.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, AlumnoComponent],
+  imports: [CommonModule, RouterOutlet, AlumnoComponent, AlumnoListaComponent],
   template: `
 <p>{{title}}</p>
 <div>
@@ -14,7 +15,7 @@ import { AlumnoComponent } from './Alumnos/alumno.component';
   <h1>{{(encabezado == '')?getNombreCompleto():(5+5)}}</h1>
   <img src='https://cordoba.salesianos.edu/wp-content/uploads/2021/05/{{imagen}}' width="100"><!--las {{}} son para que se interprete como codigo y sirve para los strings-->
   <el-alumno></el-alumno> <!--Esto llama al componente, que tiene como atributo selector ese texto para la marca html-->
-  <!-- Lo comento para que no se vea, si esta mal comentarlo quitalo Alberto <button [disabled]="desactivado">Boton</button> el [disabled] es para que se desactive el boton se hace con corchetes porque las {{}} son solo para strings-->
+  <button [disabled]="desactivado">Boton</button> <!--el [disabled] es para que se desactive el boton se hace con corchetes porque las {{}} son solo para strings-->
 </div>
 <br><br><h5>Segundo Ejemplo</h5>
 <div>
@@ -32,6 +33,8 @@ import { AlumnoComponent } from './Alumnos/alumno.component';
   <br>
   <img src="./assets/Flag_of_Mexico.svg" width="300" *ngIf=visible><!--el *ngIf es para que se muestre la imagen si se cumple la condicion -->
 </div>
+<br><br><br><h5>Lista Alumnos Component</h5>
+<lista-alumnos></lista-alumnos>
 
             `,
   styleUrl: './app.component.css'
