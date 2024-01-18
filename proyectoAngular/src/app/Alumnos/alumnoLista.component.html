@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Direccion</th>
+            <th>Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let alumno of alumnos"><!--ngFor es una directiva que permite iterar sobre una colección-->
+            <td>{{alumno.nombre}}</td>
+            <td>{{alumno.apellidos}}</td>
+            <td>{{alumno.direccion}}</td>
+            <td>{{alumno.edad}}</td>
+        </tr>
+    </tbody>
+</table>
