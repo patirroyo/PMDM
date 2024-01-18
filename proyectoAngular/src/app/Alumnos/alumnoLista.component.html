@@ -4,15 +4,17 @@
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Direccion</th>
-            <th>Edad</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Sexo</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let alumno of alumnos"><!--ngFor es una directiva que permite iterar sobre una colección-->
-            <td>{{alumno.nombre}}</td>
-            <td>{{alumno.apellidos}}</td>
+            <td>{{alumno.nombre | uppercase | alumnoTitulo:alumno.sexo}}</td><!--aplico un pipe con la | a la derecha se dice lo que quieres aplicar -->
+            <td>{{alumno.apellidos | uppercase}}</td>
             <td>{{alumno.direccion}}</td>
-            <td>{{alumno.edad}}</td>
+            <td>{{alumno.fnac | date:'dd-MMMM-YYYY'}}</td>
+            <td>{{alumno.sexo }}</td>
         </tr>
     </tbody>
 </table>

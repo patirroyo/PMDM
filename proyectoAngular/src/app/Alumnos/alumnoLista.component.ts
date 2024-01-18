@@ -1,21 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, Inject, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { AlumnoTituloPipe } from './alumnoTitulo.pipe';
+import { pipe } from 'rxjs';
 
 @Component({
     selector: 'lista-alumnos',
     standalone: true,
-    imports: [CommonModule, RouterOutlet], //Esto es para que se pueda usar el *ngIf, SINO NO FUNCIONA Y AGUSTÍN LO HABÍA COMENTADO SIN QUERER xD
+    imports: [CommonModule, RouterOutlet, AlumnoTituloPipe],
     templateUrl: './alumnoLista.component.html', 
     styleUrl: './alumno.component.css'
 })
 
+
 export class AlumnoListaComponent {
     alumnos: any[] = [
-        {nombre: 'Perico', apellidos: 'Delgado', direccion: 'Debajo del acueducto', edad: 60},
-        {nombre: 'Miguel', apellidos: 'Indurain', direccion: 'Pamplona', edad: 20},
-        {nombre: 'Alberto', apellidos: 'Contador', direccion: 'Madrid', edad: 30},
-        {nombre: 'José María', apellidos: 'Jiménez', direccion: 'Chava', edad: 40},
+        {nombre: 'Perico', apellidos: 'Delgado', direccion: 'Segovia', fnac: '2/28/1958', sexo: 'Hombre'},
+        {nombre: 'Miguel', apellidos: 'Indurain', direccion: 'Pamplona', fnac: '10/2/1968', sexo: 'Hombre'},
+        {nombre: 'Alberto', apellidos: 'Contador', direccion: 'Madrid', fnac: '05/04/1980', sexo: 'Hombre'},
+        {nombre: 'María José', apellidos: 'Jiménez', direccion: 'Cuenca', fnac: '12/30/1981', sexo: 'Mujer'},
     ];
     
 }
