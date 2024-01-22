@@ -1,10 +1,10 @@
 <span class="radioClass">Muestra:</span>
 
-<input name="opciones" type="radio" value="Todos"/>
+<input name="opciones" type="radio" value="Todos" [(ngModel)]="opcionElegida">
 <span class="radioClass">{{'Todos(' + todos + ')'}}</span>
 
-<input name="opciones" type="radio" value="Hombres"/>
+<input name="opciones" type="radio" value="Hombres" [(ngModel)]="opcionElegida">
 <span class="radioClass">{{'Hombres(' + hombres + ')'}}</span>
 
-<input name="opciones" type="radio" value="Mujeres"/>
+<input name="opciones" type="radio" value="Mujeres" [(ngModel)]="opcionElegida">
 <span class="radioClass">{{'Mujeres(' + mujeres + ')'}}</span>
