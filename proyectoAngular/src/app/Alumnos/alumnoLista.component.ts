@@ -1,11 +1,8 @@
-import { Component, Inject, NgModule } from '@angular/core';
+import { Component, Inject, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AlumnoTituloPipe } from './alumnoTitulo.pipe';
 import { AlumnosCountComponent } from './alumnosCount.component';
-
-
-
 
 
 @Component({
@@ -18,6 +15,10 @@ import { AlumnosCountComponent } from './alumnosCount.component';
 
 
 export class AlumnoListaComponent {
+    //recibe el valor del hijo
+
+    seleccion: string = 'Todos';//Esto es para que por defecto se muestren todos los alumnos, pero se puede cambiar a Hombres o Mujeres por medio del select que envia un evento al padre(donde estamos) y se cambia el valor de la variable seleccion
+
     alumnos: any[] = [
         {nombre: 'Perico', apellidos: 'Delgado', direccion: 'Segovia', fnac: '2/28/1958', sexo: 'Hombre'},
         {nombre: 'Miguel', apellidos: 'Indurain', direccion: 'Pamplona', fnac: '10/2/1968', sexo: 'Hombre'},
@@ -35,6 +36,10 @@ export class AlumnoListaComponent {
 
     getNumMujeres(): number {
         return this.alumnos.filter(alumno => alumno.sexo === 'Mujer').length;
+    }
+
+    alCambiar(opcionSeleccionada: string): void {
+        this.seleccion = opcionSeleccionada;
     }
     
 }

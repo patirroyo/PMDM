@@ -28,4 +28,10 @@ export class AlumnosCountComponent {
     
     @Output()
     globalElegido : EventEmitter<string> = new EventEmitter<string>();
+
+
+    cuandoCambiemos(){
+        this.globalElegido.emit(this.opcionElegida);//Accedemos al global elegido con this y emitimos el valor de la variable opcionElegida que es un string
+        console.log(this.opcionElegida);
+    }
 }
