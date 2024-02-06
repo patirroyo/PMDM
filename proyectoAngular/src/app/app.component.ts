@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AlumnoComponent } from './Alumnos/alumno.component';
 import { AlumnoListaComponent } from './Alumnos/alumnoLista.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, AlumnoComponent, AlumnoListaComponent],
+  imports: [CommonModule, RouterOutlet, AlumnoComponent, AlumnoListaComponent, HttpClientModule],
   template: `
 <p>{{title}}</p>
 <div>
