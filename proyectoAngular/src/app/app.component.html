@@ -1,3 +1,14 @@
+<ul class="nav nav-pills ">
+  <li class="nav-item">
+    <a class="nav-link"  href="Alumnos" [ngClass]="isAlumosActive()">Alumnos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="Profesores" [ngClass]="isProfesoresActive()">Profesores</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+<br><br />
+
 <p>{{title}}</p>
 <div>
   <h5>Primer ejemplo</h5>

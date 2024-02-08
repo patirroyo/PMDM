@@ -4,27 +4,20 @@ import { RouterOutlet } from '@angular/router';
 import { AlumnoComponent } from './Alumnos/alumno.component';
 import { AlumnoListaComponent } from './Alumnos/alumnoLista.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, AlumnoComponent, AlumnoListaComponent, HttpClientModule],
-  template: `              
-              <ul class="nav nav-pills ">
-                <li class="nav-item">
-                  <a class="nav-link"  href="Alumnos">Alumnos</a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="Profesores">Profesores</a>
-                </li>
-              </ul>
-              <router-outlet></router-outlet>
-
-            `,
+  templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 
 })
 export class AppComponent {
+  constructor(private router: Router) {}
+
   //-----------------Primer ejemplo----------------//
   title: string = 'proyectoAngular de la clase 2ºH';
   encabezado: string = '5';
@@ -53,9 +46,17 @@ export class AppComponent {
     }
     return clases;
   }
-//-----------------Tercer ejemplo----------------//
-visible: boolean = false;
-onClick(){
-  this.visible = !this.visible;
-}
+  //-----------------Tercer ejemplo----------------//
+  visible: boolean = false;
+  onClick(){
+    this.visible = !this.visible;
+  }
+  //-----------------la visibilidad----------------//
+  isAlumosActive() : string{
+    return this.router.url.includes('Alumnos') ? 'active' : '';
+  }
+  isProfesoresActive() : string{
+    return this.router.url.includes('Profesores') ? 'active' : '';
+  }
+
 }
