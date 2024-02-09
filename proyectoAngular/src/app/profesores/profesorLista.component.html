@@ -1,0 +1,32 @@
+<cuantos-profesores     
+                [todos] ="getNumTodos()" 
+                [hombres]="getNumHombres()"
+                [mujeres]="getNumMujeres()"
+                (globalElegido)="alCambiar($event)">
+</cuantos-profesores>
+<table class="table table-sm table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Direccion</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Sexo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let profesor of profesores">
+            <tr *ngIf="profesor.sexo == seleccion || seleccion == 'Todos'">
+                <td>{{profesor.nombre | uppercase | profesorTitulo:profesor.sexo}}</td>
+                <td>{{profesor.apellidos | uppercase}}</td>
+                <td>{{profesor.direccion}}</td>
+                <td>{{profesor.fnac | date:'dd-MMMM-YYYY'}}</td>
+                <td>{{profesor.sexo }}</td>
+            </tr>
+        </ng-container>
+        <tr *ngIf="profesores.length == 0">
+            <td colspan="5">No hay profesores</td>
+        </tr>
+        
+    </tbody>
+</table>

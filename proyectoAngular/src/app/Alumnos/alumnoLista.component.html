@@ -4,7 +4,7 @@
                 [mujeres]="getNumMujeres()"
                 (globalElegido)="alCambiar($event)"><!-- No hay problema en acceder a los métodos porque es un componente hijo -->
 </cuantos-alumnos><!--globalElegido es el nombre del evento que se ha creado en el componente hijo-->
-<table>
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -12,7 +12,6 @@
             <th>Direccion</th>
             <th>Fecha de Nacimiento</th>
             <th>Sexo</th>
-            <th>Nombre del padre</th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +22,6 @@
                 <td>{{alumno.direccion}}</td>
                 <td>{{alumno.fnac | date:'dd-MMMM-YYYY'}}</td>
                 <td>{{alumno.sexo }}</td>
-                <td>{{alumno.nom_padre}}</td>
             </tr>
         </ng-container>
         <tr *ngIf="alumnos.length == 0">

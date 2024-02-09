@@ -13,5 +13,11 @@
 h1{
     color: #369;
     font-family: JetBrains Mono;
-    font-size: 250%;
+    font-size: 150%;
+}
+body{
+    padding: 20px;
+}
+*{
+    text-align: center;
 }

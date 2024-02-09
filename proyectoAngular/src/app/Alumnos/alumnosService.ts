@@ -11,7 +11,7 @@ export class AlumnosService {
     constructor(private http: HttpClient) { }//mediante inyección de dependencias, se inyecta el servicio HttpClient en el constructor de la clase AlumnosService
 
     getAlumnos(): Observable<Alumno[]> {//metemos el vector de alumnos en un objeto observable
-        return this.http.get<Alumno[]>('https://localhost:44349/api/Alumno');
+        return this.http.get<Alumno[]>('https://localhost:44359/api/Alumno');
     }
     
 
