@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table w-50 table-sm table-bordered">
     <thead>
         <tr>
             <!--<th attr.colspan={{columnas}}>Ciclista</th> otra forma de indireccionamiento más. Enlace de datos-->
@@ -27,4 +27,4 @@
 <br>
 <!--El siguiente botón sirve para alternar la visibilidad de la Direccion y la Edad-->
 <!--Ponemos un if que cambia el texto del botón según el valor de visibles-->
-<button (click)="alternarVisibilidad()"> {{ visibles ? "Ocultar" : "Mostrar" }} Detalles</button>
+<button class="btn btn-outline-primary " [ngClass]="{'btn-primary' : visibles}" (click)="alternarVisibilidad()"> {{ visibles ? "Ocultar" : "Mostrar" }} Detalles</button>

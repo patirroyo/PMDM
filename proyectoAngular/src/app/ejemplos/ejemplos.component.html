@@ -1,12 +1,12 @@
-<p>{{title}}</p>
+<h1>{{title}}</h1>
 <div>
-  <h5>Primer ejemplo</h5>
-  <h1>{{(encabezado == '')?getNombreCompleto():(5+5)}}</h1>
-  <img src='https://cordoba.salesianos.edu/wp-content/uploads/2021/05/{{imagen}}' width="100"><!--las {{}} son para que se interprete como codigo y sirve para los strings-->
+  <h2>Primer ejemplo</h2>
+  <h1>{{(encabezado == ' ')?getNombreCompleto():(5+5)}}</h1>
+  <img class="m-3" src='https://cordoba.salesianos.edu/wp-content/uploads/2021/05/{{imagen}}' width="100"><!--las {{}} son para que se interprete como codigo y sirve para los strings-->
   <el-alumno></el-alumno> <!--Esto llama al componente, que tiene como atributo selector ese texto para la marca html-->
-  <button [disabled]="desactivado">Boton</button> <!--el [disabled] es para que se desactive el boton se hace con corchetes porque las {{}} son solo para strings-->
+  <button class="btn " [disabled]=true>Boton Desactivado</button> <!--el [disabled] es para que se desactive el boton se hace con corchetes porque las {{}} son solo para strings-->
 </div>
-<br><br><h5>Segundo Ejemplo</h5>
+<br><br><h3>Segundo Ejemplo</h3>
 <div>
   <button [class]="aplicarClases">Boton 1</button>
   <br><br>
@@ -18,9 +18,9 @@
 </div>
 <br><br><br><h5>Tercer Ejemplo</h5>
 <div>
-  <button (click)="onClick()">Mostrar/Ocultar Bandera</button>
+  <button class="btn btn-danger m-3" (click)="onClick()">Mostrar/Ocultar Bandera</button>
   <br>
-  <img src="./assets/Flag_of_Mexico.svg" width="300" *ngIf=visible><!--el *ngIf es para que se muestre la imagen si se cumple la condicion -->
+  <img class="m-3"src="./assets/Flag_of_Mexico.svg" width="300" *ngIf=visible><!--el *ngIf es para que se muestre la imagen si se cumple la condicion -->
 </div>
 <br><br><br><h5>Lista Alumnos Component</h5>
 <lista-alumnos></lista-alumnos>
