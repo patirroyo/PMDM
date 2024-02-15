@@ -5,12 +5,13 @@ import { AlumnoTituloPipe } from './alumnoTitulo.pipe';
 import { AlumnosCountComponent } from './alumnosCount.component';
 import { IAlumno, Alumno } from './alumno';
 import { AlumnosService } from './alumnosService';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
     selector: 'lista-alumnos',
     standalone: true,
-    imports: [CommonModule, RouterOutlet, AlumnoTituloPipe, AlumnosCountComponent],
+    imports: [CommonModule, RouterOutlet, AlumnoTituloPipe, AlumnosCountComponent, RouterModule],
     providers: [AlumnosService],
     templateUrl: './alumnoLista.component.html',
     styleUrl: './alumno.component.css'

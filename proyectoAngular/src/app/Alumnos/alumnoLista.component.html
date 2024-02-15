@@ -17,7 +17,7 @@
     <tbody>
         <ng-container *ngFor="let alumno of alumnos"><!--ng-container es un contenedor que no se renderiza en el DOM-->
             <tr *ngIf="alumno.sexo == seleccion || seleccion == 'Todos'"><!--ngFor es una directiva que permite iterar sobre una colección-->
-                <td>{{alumno.nombre | uppercase | alumnoTitulo:alumno.sexo}}</td><!--aplico un pipe con la | a la derecha se dice lo que quieres aplicar -->
+                <td><a [routerLink]="['/Alumnos', alumno.id]"> {{alumno.nombre | uppercase | alumnoTitulo:alumno.sexo}}</a></td><!--aplico un pipe con la | a la derecha se dice lo que quieres aplicar -->
                 <td>{{alumno.apellidos | uppercase}}</td>
                 <td>{{alumno.direccion}}</td>
                 <td>{{alumno.fnac | date:'dd-MMMM-YYYY'}}</td>

@@ -13,6 +13,11 @@ export class AlumnosService {
     getAlumnos(): Observable<Alumno[]> {//metemos el vector de alumnos en un objeto observable
         return this.http.get<Alumno[]>('https://localhost:44359/api/Alumno');
     }
+
+
+    getAlumno(id : number): Observable<Alumno> {
+        return this.http.get<Alumno>('https://localhost:44359/api/Alumno/' + id);
+    }
     
 
 
