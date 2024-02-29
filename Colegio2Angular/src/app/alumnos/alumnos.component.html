@@ -1,0 +1,35 @@
+<div class="container col-9">
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Direccion</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Sexo</th>
+                <th>Curso</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let alumno of alumnos"><!--ng-container es un contenedor que no se renderiza en el DOM-->
+                <tr *ngIf="alumno.cursoID == seleccionado || seleccionado == 0"><!--ngFor es una directiva que permite iterar sobre una colección-->
+                    <td> {{alumno.nombre }}</td><!--aplico un pipe con la | a la derecha se dice lo que quieres aplicar -->
+                    <td>{{alumno.apellidos | uppercase}}</td>
+                    <td>{{alumno.direccion}}</td>
+                    <td>{{alumno.fnac | date:'dd-MMMM-YYYY'}}</td>
+                    <td>{{alumno.sexo }}</td>
+                    <td>{{alumno.cursoID}}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="borrarAlumno(alumno.ID)">Borrar</button>
+                    </td>
+                </tr>
+            </ng-container>
+
+            <tr *ngIf="alumnos.length == 0">
+                <td colspan="5">No hay alumnos</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>

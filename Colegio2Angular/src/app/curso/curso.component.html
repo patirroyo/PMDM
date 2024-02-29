@@ -1,0 +1,48 @@
+<div class="container mt-3 col-6">
+    <!-- ? select que llama a una funcion al cambiar y le pasa el valor del item seleccionado -->
+    <select #selectList class="form-select form-select-lg mb-3" (change)="onChange(selectList.value)">
+        <option value="0">Seleccione un curso</option>
+        <!-- 
+            ? recorremos el array de cursos para crear los options del select. 
+            ? cada option tiene el valor del ID del curso y muestra el texto del año y letra del curso.
+        -->
+        <option *ngFor="let curso of cursos" [value]="curso.ID">{{curso.ano}}º {{curso.letra}}</option>
+    </select>
+</div>
+
+<!-- 
+    ? llamamos al componente hijo que tendrá un @input que recibe un ID pasado usando el atributo  
+    ? seleccionado. Este se carga al hacer el método onChange() 
+    * Si queremos enviar varios @input se haría así:
+    *<app-alumnos [seleccionado] = seleccionado [otroInput] = otroInput>
+    -->
+    <app-alumnos
+    [seleccionado] = seleccionado>
+</app-alumnos>
+
+
+<div class="container mt-3 col-6">
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Año</th>
+                <th>Letra</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let curso of cursos">
+                <tr >
+                    <td><a [routerLink]="['/Cursos/', curso.ID]">{{curso.ID }} </a> </td>
+                    <td>{{curso.ano}}</td>
+                    <td>{{curso.letra}}</td>
+                </tr>
+            </ng-container>
+
+            <tr *ngIf="cursos.length == 0">
+                <td colspan="5">No hay cursos</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
