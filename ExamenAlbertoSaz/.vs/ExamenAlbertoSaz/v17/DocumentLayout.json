@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Salesianos\\ExamenAlbertoSaz\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|d:\\salesianos\\examenalbertosaz\\examenalbertosaz\\views\\compra\\getstock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|solutionrelative:examenalbertosaz\\views\\compra\\getstock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|d:\\salesianos\\examenalbertosaz\\examenalbertosaz\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|solutionrelative:examenalbertosaz\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|d:\\salesianos\\examenalbertosaz\\examenalbertosaz\\views\\producto\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|solutionrelative:examenalbertosaz\\views\\producto\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|d:\\salesianos\\examenalbertosaz\\examenalbertosaz\\controllers\\compracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|solutionrelative:examenalbertosaz\\controllers\\compracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|d:\\salesianos\\examenalbertosaz\\examenalbertosaz\\models\\contexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{026B2A36-C951-4AE1-A64E-99BC0E78F9D8}|ExamenAlbertoSaz\\ExamenAlbertoSaz.csproj|solutionrelative:examenalbertosaz\\models\\contexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductoController.cs",
+              "DocumentMoniker": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Controllers\\ProductoController.cs",
+              "RelativeDocumentMoniker": "ExamenAlbertoSaz\\Controllers\\ProductoController.cs",
+              "ToolTip": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Controllers\\ProductoController.cs",
+              "RelativeToolTip": "ExamenAlbertoSaz\\Controllers\\ProductoController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAswDUAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T11:36:05.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Views\\Producto\\Details.cshtml",
+              "RelativeDocumentMoniker": "ExamenAlbertoSaz\\Views\\Producto\\Details.cshtml",
+              "ToolTip": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Views\\Producto\\Details.cshtml",
+              "RelativeToolTip": "ExamenAlbertoSaz\\Views\\Producto\\Details.cshtml",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAwHwAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-08T11:32:49.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "getStock.cshtml",
+              "DocumentMoniker": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Views\\Compra\\getStock.cshtml",
+              "RelativeDocumentMoniker": "ExamenAlbertoSaz\\Views\\Compra\\getStock.cshtml",
+              "ToolTip": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Views\\Compra\\getStock.cshtml",
+              "RelativeToolTip": "ExamenAlbertoSaz\\Views\\Compra\\getStock.cshtml",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAxwCMAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-08T11:24:19.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Contexto.cs",
+              "DocumentMoniker": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Models\\Contexto.cs",
+              "RelativeDocumentMoniker": "ExamenAlbertoSaz\\Models\\Contexto.cs",
+              "ToolTip": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Models\\Contexto.cs",
+              "RelativeToolTip": "ExamenAlbertoSaz\\Models\\Contexto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T11:11:37.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CompraController.cs",
+              "DocumentMoniker": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Controllers\\CompraController.cs",
+              "RelativeDocumentMoniker": "ExamenAlbertoSaz\\Controllers\\CompraController.cs",
+              "ToolTip": "D:\\Salesianos\\ExamenAlbertoSaz\\ExamenAlbertoSaz\\Controllers\\CompraController.cs",
+              "RelativeToolTip": "ExamenAlbertoSaz\\Controllers\\CompraController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwB8AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T10:39:43.598Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

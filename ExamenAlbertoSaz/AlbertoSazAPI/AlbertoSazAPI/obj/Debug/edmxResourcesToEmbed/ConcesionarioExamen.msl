@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ExamenConcesionarioModelStoreContainer" CdmEntityContainer="ExamenConcesionarioEntities">
+    <EntitySetMapping Name="Series">
+      <EntityTypeMapping TypeName="ExamenConcesionarioModel.Series">
+        <MappingFragment StoreEntitySet="Series">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="NomSerie" ColumnName="NomSerie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehiculos">
+      <EntityTypeMapping TypeName="ExamenConcesionarioModel.Vehiculos">
+        <MappingFragment StoreEntitySet="Vehiculos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="SerieId" ColumnName="SerieId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
